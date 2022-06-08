@@ -9,8 +9,9 @@ const GLobalStyle = createGlobalStyle`
   }
 
   body {
-    background: ${({theme}) => theme.colors.primary};
+    background: ${({theme}) => theme.colors.gray900};
     display: flex;
+    justify-content: center;
   }
 `;
 
