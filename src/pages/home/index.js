@@ -3,19 +3,25 @@ import React from 'react';
 import Navbar from '@components/navBar';
 
 import CarImage from '@assets/car.png';
+import ShapeImage from '@assets/shape.png';
 
 import {
   Container,
+  Content,
   BannerContainer,
   BannerText,
   BannerImage,
   BannerTitle,
   BannerParagraph,
+  ShapeImg
 } from './styles';
 
 const Home = () => {
   return (
+    <>
+    <ShapeImg src={ShapeImage}/>
     <Container>
+      <Content>
       <Navbar />
       <BannerContainer>
         <BannerText>
@@ -30,7 +36,9 @@ const Home = () => {
         </BannerText>
         <BannerImage src={CarImage} />
       </BannerContainer>
+      </Content>
     </Container>
+    </>
   );
 };
 
