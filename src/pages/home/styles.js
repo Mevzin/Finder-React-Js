@@ -42,8 +42,10 @@ export const BannerParagraph = styled.p`
 `;
 
 export const BannerImage = styled.img`
+  margin-top: 18px;
   width: 746px;
   height: 416px;
+  z-index: 1;
 `;
 
 export const ShapeImg = styled.img`
