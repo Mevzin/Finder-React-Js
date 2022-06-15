@@ -15,7 +15,12 @@ module.exports = merge( common, {
         test: /\.js(x?)$/,
         loader: 'babel-loader',
         exclude: /node_modules/
-      }, {
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+      {
         test: /\.(scss|sass)$/,
         use: [
           {
@@ -35,18 +40,16 @@ module.exports = merge( common, {
       }
     ]
   },
-  externals: {
-    react: 'React',
-    axios: 'axios',
-    'react-dom': 'ReactDOM',
-    'react-router-dom': 'ReactRouterDOM', 
-  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './template.prod.html'
     }),
     new MiniCssExtractPlugin({
       filename: 'main-bundle-[hash].css'
-    })
+    }),
+    new FaviconsWebpackPlugin({
+      logo: "./src/assets/favicon.png",
+      outputPath: "img",
+    }),
   ]
 })

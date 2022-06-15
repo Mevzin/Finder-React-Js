@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack server --open --config webpack.dev.js",
-    "prod": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +29,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.5.0",
+    "favicons": "6.2.2",
     "favicons-webpack-plugin": "^5.0.2",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.0",
@@ -43,7 +44,7 @@
     "axios": "^0.27.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-redux": "^8.0.2",
+    "react-icons": "^4.4.0",
     "react-router-dom": "^6.3.0",
     "styled-components": "^5.3.5"
   }
