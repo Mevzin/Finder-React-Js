@@ -16,5 +16,6 @@ export default {
     gray400: "#d5d2dc",
     gray300: "#efecf3",
     gray200: "#f5f4f8",
+    transparent: "rgba(255, 255, 255, 0.04)",
   },
 }
