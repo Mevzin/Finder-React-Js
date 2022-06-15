@@ -1,0 +1,127 @@
+import styled from "styled-components";
+
+
+export const FilterContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+`;
+
+export const SelectionFilterButtons = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const ButtonNewCars = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 400;
+  margin-right: 12px;
+  color: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.transparent};
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary};
+    background: ${({ theme }) => theme.colors.white};
+  }
+`;
+
+export const ButtonUsedCars = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 400;
+  margin-right: 12px;
+  color: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.transparent};
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary};
+    background: ${({ theme }) => theme.colors.white};
+  }
+`;
+
+export const FormFilter = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  background: ${({ theme }) => theme.colors.transparent};
+  border: 1px solid ${({ theme }) => theme.colors.gray700};
+  border-radius: 8px;
+  margin-top: 12px;
+  padding: 0 8px;
+
+  img {
+    height: 40px;
+  }
+
+  input {
+    max-width: 100%;
+    height: 40px;
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    color: ${({ theme }) => theme.colors.gray700};
+  }
+
+  select {
+    max-width: 100%;
+    height: 40px;
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    color: ${({ theme }) => theme.colors.gray700};
+    cursor: pointer;
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.primary};
+    }
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.primary};
+    }
+  }
+
+  option {
+    max-width: 100%;
+    height: 40px;
+    background: ${({ theme }) => theme.colors.gray800};
+    border: none;
+    font-size: 16px;
+    color: ${({ theme }) => theme.colors.gray700};
+    cursor: pointer;
+
+  }
+`;
+
+export const ButtonSearch = styled.button`
+  background: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.white};
+  border: none;
+  width: 142px;
+  height: 52px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-family: Noto Sans, sans-serif;
+`;

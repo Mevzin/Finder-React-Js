@@ -5,13 +5,12 @@ const GLobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Roboto, sans-serif;
+    font-family: 'Noto Sans', sans-serif;
   }
 
   body {
     background: ${({theme}) => theme.colors.gray900};
     display: flex;
-    justify-content: center;
   }
 `;
 
