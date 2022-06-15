@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const FilterContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -91,15 +90,6 @@ export const FormFilter = styled.div`
     border: none;
     font-size: 16px;
     color: ${({ theme }) => theme.colors.gray700};
-    cursor: pointer;
-
-    &:hover {
-      color: ${({ theme }) => theme.colors.primary};
-    }
-
-    &:hover {
-      color: ${({ theme }) => theme.colors.primary};
-    }
   }
 
   option {
@@ -110,7 +100,6 @@ export const FormFilter = styled.div`
     font-size: 16px;
     color: ${({ theme }) => theme.colors.gray700};
     cursor: pointer;
-
   }
 `;
 
@@ -124,4 +113,26 @@ export const ButtonSearch = styled.button`
   justify-content: center;
   border-radius: 8px;
   font-family: Noto Sans, sans-serif;
+`;
+
+export const InputContent = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  padding: 4px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+      border: 1px solid ${({ theme }) => theme.colors.primary};
+    }
+
+  svg {
+    margin-right: 8px;
+
+  }
+
 `;

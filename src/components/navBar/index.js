@@ -2,8 +2,8 @@ import React from "react";
 
 import LogoIcon from "@assets/Logo.png";
 import Divider from "@assets/divider.png";
-import UserIcon from "@assets/user.svg";
-import PlusIcon from "@assets/plus.svg";
+import UserIcon from "@assets/icons/user.svg";
+import PlusIcon from "@assets/icons/plus.svg";
 
 import {
   Container,
