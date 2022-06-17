@@ -12,7 +12,7 @@ export const SelectionFilterButtons = styled.div`
   flex-direction: row;
 `;
 
-export const ButtonNewCars = styled.div`
+export const ButtonNewCars = styled.button`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -35,7 +35,7 @@ export const ButtonNewCars = styled.div`
   }
 `;
 
-export const ButtonUsedCars = styled.div`
+export const ButtonUsedCars = styled.button`
   display: flex;
   flex-direction: row;
   align-items: center;
