@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { useTheme } from "styled-components";
 
@@ -21,9 +21,31 @@ import { TbCar } from "react-icons/tb";
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
 
 import DividerImg from "@assets/divider.png";
+import { apiFinder } from "../../service/api";
 
 export default function HorizontalFilter() {
   const theme = useTheme();
+  const [brands, setBrands] = useState();
+  const [typeCar, setTypeCar] = useState();
+
+  async function getBrands() {
+    await apiFinder.get("/brands")
+      .then((response) => {
+        setBrands(response.data);
+      })
+  }
+
+  async function getTypeCar(){
+    await apiFinder.get("/cartype")
+      .then((response) => {
+        setTypeCar(response.data);
+      })
+  }
+
+  useEffect(() => {
+    getBrands(),
+    getTypeCar()
+  },[])
 
   return (
     <FilterContainer>
@@ -40,10 +62,13 @@ export default function HorizontalFilter() {
         <InputContent>
           <RiStarLine color={theme.colors.gray700} />
           <select name="cars" id="cars">
-            <option value="volvo">Marca</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
+            <option value="null">Marca</option>
+            {brands?.map((model) => (
+                <option key={model.id} value={model.name}>
+                  {model.name}
+                </option>
+              )
+            )}
           </select>
         </InputContent>
         <img src={DividerImg} />
@@ -61,9 +86,11 @@ export default function HorizontalFilter() {
           <TbCar color={theme.colors.gray700} />
           <select name="cars" id="cars">
             <option value="volvo">Tipo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
+            {typeCar?.map((type) => (
+                <option key={type} value={type}>
+                  {type}
+                </option>
+            ))}
           </select>
         </InputContent>
         <img src={DividerImg} />
