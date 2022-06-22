@@ -81,6 +81,10 @@ export const FormFilter = styled.div`
     border: none;
     font-size: 16px;
     color: ${({ theme }) => theme.colors.gray700};
+
+    &:focus{
+      outline: 0;
+    }
   }
 
   select {
@@ -90,6 +94,10 @@ export const FormFilter = styled.div`
     border: none;
     font-size: 16px;
     color: ${({ theme }) => theme.colors.gray700};
+
+    &:focus{
+      outline: 0;
+    }
   }
 
   option {
@@ -124,11 +132,13 @@ export const InputContent = styled.div`
   padding: 4px;
   border: 1px solid transparent;
   border-radius: 8px;
+  transition: 0.3s;
   cursor: pointer;
 
   &:hover {
       border: 1px solid ${({ theme }) => theme.colors.primary};
-    }
+  }
+
 
   svg {
     margin-right: 8px;

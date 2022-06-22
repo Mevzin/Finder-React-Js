@@ -54,3 +54,48 @@ export const ShapeImg = styled.img`
   width: 100%;
   z-index: 0;
 `;
+
+export const MostSearchContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 72px;
+`;
+
+export const MostSearchHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const MostSearchTitle = styled.div`
+  h2 {
+    color: ${({ theme }) => theme.colors.white};
+    font-size: 24px;
+    font-weight: bold;
+
+  }
+`;
+
+export const ViewAllResults = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  color: ${({ theme }) => theme.colors.gray800};
+  transition: 0.3s;
+  cursor: pointer;
+
+  p {
+    margin-right: 5px;
+  }
+
+  &:hover{
+    color: ${({ theme }) => theme.colors.gray400};
+  }
+`;
+
+export const MostSearchContent = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+`;
