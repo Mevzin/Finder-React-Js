@@ -27,6 +27,11 @@ import {
   CardsContainer,
   MainCard,
   SecondaryCard,
+  InfosContainer,
+  LeftText,
+  RightText,
+  ImageCarRoad,
+  InfoContent 
 } from "./styles";
 
 import { apiFinder } from "../../service/api";
@@ -38,31 +43,25 @@ import Brands from "../../components/brands";
 
 let i = 1;
 
-const car = [{
-    "id": 0,
-    "model": "Fiat Uno",
-    "version": "Vivace",
-    "brand": 2,
-    "price": "41.999",
-    "year": 2020,
-    "description": "Fiat uno...",
-    "mileage": "até 10.000 km",
-    "cartype": "Hatback",
-    "color": "Branco",
-    "photos": [
-      "https://images.noticiasautomotivas.com.br/img/f/fiat-uno-vivace-1-9.jpeg"
+const car = [
+  {
+    id: 0,
+    model: "Fiat Uno",
+    version: "Vivace",
+    brand: 2,
+    price: "41.999",
+    year: 2020,
+    description: "Fiat uno...",
+    mileage: "até 10.000 km",
+    cartype: "Hatback",
+    color: "Branco",
+    photos: [
+      "https://images.noticiasautomotivas.com.br/img/f/fiat-uno-vivace-1-9.jpeg",
     ],
-    "additional": [
-      "Transmissão manual",
-      "Freio ABS",
-      "Air Bag"
-    ],
-    "fuel": [
-      "Alcool",
-      "Gasolina",
-      "Flex"
-    ]
-}]
+    additional: ["Transmissão manual", "Freio ABS", "Air Bag"],
+    fuel: ["Alcool", "Gasolina", "Flex"],
+  },
+];
 
 const Home = () => {
   const [models, setModels] = useState();
@@ -86,8 +85,7 @@ const Home = () => {
   }
 
   useEffect(() => {
-    getModels(),
-    getCars()
+    getModels(), getCars();
   }, []);
   return (
     <>
@@ -118,7 +116,7 @@ const Home = () => {
             </HeaderSection>
             <MostSearchContent>
               {models?.map((model) => (
-                <CardMostSearch key={autoGenKey()} carModel={model} />
+                <CardMostSearch key={model.id} carModel={model.value} />
               ))}
             </MostSearchContent>
           </MostSearchContainer>
@@ -134,17 +132,11 @@ const Home = () => {
             </HeaderSection>
             <CardsContainer>
               <MainCard>
-                <CardOffers 
-                  cardOptions={[
-                    'large',
-                    'sale',
-                  ]}
-                  carProps={cars}
-                  />
+                <CardOffers cardOptions={["large", "sale"]} carProps={cars} />
               </MainCard>
               <SecondaryCard>
-                <CardOffersMd carProps={cars}/>
-                <CardOffersMd carProps={cars}/>
+                <CardOffersMd carProps={cars} />
+                <CardOffersMd carProps={cars} />
               </SecondaryCard>
             </CardsContainer>
           </OffersContainer>

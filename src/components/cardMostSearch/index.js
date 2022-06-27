@@ -15,7 +15,7 @@ import HatbackIcon from "@assets/modelsIcons/wagon.svg";
 import CoupeIcon from "@assets/modelsIcons/coupe.svg";
 
 const  CardMostSearch = ({carModel}) => {
-
+console.log(carModel)
   function getCarImageByName(carModel) {
     switch(carModel){
       case "SUV":

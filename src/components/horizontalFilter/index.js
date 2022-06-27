@@ -87,8 +87,8 @@ export default function HorizontalFilter() {
           <select name="cars" id="cars">
             <option value="volvo">Tipo</option>
             {typeCar?.map((type) => (
-                <option key={type} value={type}>
-                  {type}
+                <option key={type.id} value={type.id}>
+                  {type.value}
                 </option>
             ))}
           </select>
