@@ -34,6 +34,7 @@ import { apiFinder } from "../../service/api";
 import CardMostSearch from "../../components/cardMostSearch";
 import CardOffers from "../../components/cardOffers";
 import CardOffersMd from "../../components/cardOffersMd";
+import Brands from "../../components/brands";
 
 let i = 1;
 
@@ -147,6 +148,7 @@ const Home = () => {
               </SecondaryCard>
             </CardsContainer>
           </OffersContainer>
+          <Brands />
         </Content>
       </Container>
     </>
