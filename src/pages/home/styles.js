@@ -62,18 +62,17 @@ export const MostSearchContainer = styled.div`
   margin-top: 72px;
 `;
 
-export const MostSearchHeader = styled.div`
+export const HeaderSection = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 `;
 
-export const MostSearchTitle = styled.div`
+export const TitleSection = styled.div`
   h2 {
     color: ${({ theme }) => theme.colors.white};
     font-size: 24px;
     font-weight: bold;
-
   }
 `;
 
@@ -99,3 +98,33 @@ export const MostSearchContent = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 `;
+
+export const OffersContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+`;
+
+export const HeaderOffers = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const CardsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 30px;
+`;
+
+export const MainCard = styled.div`
+
+`;
+
+export const SecondaryCard = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+`;
+
