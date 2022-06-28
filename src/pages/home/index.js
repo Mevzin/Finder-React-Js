@@ -51,6 +51,7 @@ import {
   SecondContentParagraphs,
   SecondParagraphText,
 } from "./styles";
+import Footer from "../../components/footer";
 
 const Home = () => {
   const [models, setModels] = useState();
@@ -206,6 +207,7 @@ const Home = () => {
             </InfoContent>
           </InfoContainer>
         </Content>
+        <Footer />
       </Container>
     </>
   );
