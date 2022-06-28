@@ -46,7 +46,6 @@ const CardOffersMd = ({ carProps }) => {
 
   if (carProps[0]?.photos.length > 1) {
     setMoreImages(true);
-    console.log("mais de um");
   }
   return (
     <Container>
