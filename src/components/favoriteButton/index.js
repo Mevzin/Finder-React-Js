@@ -15,7 +15,6 @@ const FavoriteButton = ({isFavorite}) => {
 
   function handleFavorite(){
     setFavorite(!favorite);
-    console.log(favorite)
   }
 
   return(
