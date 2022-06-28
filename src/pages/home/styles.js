@@ -78,11 +78,14 @@ export const TitleSection = styled.div`
 export const ViewAllResults = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
+  align-items: flex-end;
   color: ${({ theme }) => theme.colors.gray800};
   transition: 0.3s;
   cursor: pointer;
+
+  svg {
+    height: 21.11px;
+  }
 
   p {
     margin-right: 5px;
@@ -125,4 +128,90 @@ export const SecondaryCard = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+`;
+
+export const InfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const InfoContent = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+`;
+
+export const FirstTextColum = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 416px;
+  height: 368px;
+`;
+
+export const FirstParagraphText = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+
+  svg {
+    height: 24px;
+    width: 24px;
+    color: ${({ theme }) => theme.colors.primary};
+    margin-left: 16px;
+  }
+`;
+
+export const FirstContentParagraphs = styled.div`
+  text-align: end;
+  width: 376px;
+
+  h3{
+    font-size: 18px;
+    color: ${({ theme }) => theme.colors.white};
+  }
+
+  p {
+    font-size: 14px;
+    color: ${({ theme }) => theme.colors.gray600};
+  }
+`;
+
+export const SecondTextColum = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 416px;
+  height: 368px;
+`;
+
+export const SecondParagraphText = styled.div`
+  display: flex;
+
+  svg {
+    height: 24px;
+    width: 24px;
+    color: ${({ theme }) => theme.colors.primary};
+    margin-right: 16px;
+  }
+`;
+
+export const SecondContentParagraphs = styled.div`
+  text-align: start;
+  width: 376px;
+
+  h3{
+    font-size: 18px;
+    color: ${({ theme }) => theme.colors.white};
+  }
+
+  p {
+    font-size: 14px;
+    color: ${({ theme }) => theme.colors.gray600};
+  }
+`;
+
+export const CarRoadImg = styled.img`
+  position: relative;
+  top: -32.22px;
 `;
