@@ -12,6 +12,8 @@ import CardMostSearch from "@components/cardMostSearch";
 import CardOffers from "@components/cardOffers";
 import CardOffersMd from "@components/cardOffersMd";
 import Brands from "@components/brands";
+import LatestNews from "@components/latestNews";
+
 
 import { BsArrowRight } from "react-icons/bs";
 import {
@@ -207,6 +209,7 @@ const Home = () => {
             </InfoContent>
           </InfoContainer>
         </Content>
+        <LatestNews />
         <Footer />
       </Container>
     </>
