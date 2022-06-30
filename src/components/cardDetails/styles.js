@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const Carousel = styled.div`
+  margin-bottom: 124px;
+
   .slick-slide div div div img {
     width: 746px;
     border-radius: 12px;
@@ -45,3 +47,45 @@ export const Carousel = styled.div`
     align-items: center;
   }
 `;
+
+export const WrapperTittle = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  h3 {
+    color: white;
+  }
+  .icon-heart {
+    color: white;
+    background: #fff3;
+    padding: 5px;
+    font-size: 21px;
+    border-radius: 200px;
+  }
+`;
+
+export const Specifications = styled.div`
+  display: flex;
+  flex-direction: column;
+  color: white;
+
+  div {
+    margin-bottom: 8px;
+  }
+  .title {
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+  span.specifications-value {
+    opacity: 0.7;
+  }
+`;
+export const WrapperSpecifications = styled.div`
+  display: flex;
+  gap: 24px;
+`;
+
+export const WrapperLeft = styled.div``;
+
+export const WrapperRight = styled.div``;

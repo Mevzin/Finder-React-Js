@@ -5,8 +5,17 @@ import "slick-carousel/slick/slick-theme.css";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
 import { HiOutlinePhotograph } from "react-icons/hi";
+import { FiHeart } from "react-icons/fi";
+import { AiOutlineShareAlt } from "react-icons/ai";
 
-import { Carousel } from "./styles";
+import {
+  Carousel,
+  WrapperTittle,
+  Specifications,
+  WrapperSpecifications,
+  WrapperLeft,
+  WrapperRight,
+} from "./styles";
 
 const CardDetails = () => {
   const images = [
@@ -44,28 +53,58 @@ const CardDetails = () => {
   };
   return (
     <div>
-      <h2>Custom Paging</h2>
-      <Carousel>
-        <Slider
-          nextArrow={<IoIosArrowForward />}
-          prevArrow={<IoIosArrowBack />}
-          className="carousel-sustainability"
-          style={{ maxWidth: "746px" }}
-          {...settings}
-        >
-          {images.map((img, index) => (
-            <div key={index} className="wrapper-carousel">
-              <div>
-                <img src={img.src} alt="abc" />
-              </div>
-              <p className="number-of-slides-details">
-                <HiOutlinePhotograph style={{ marginRight: "10px" }} />{" "}
-                {index + 1}/{images.length}
-              </p>
+      <WrapperTittle>
+        <h3>Mercedes-Benz E 400 Cabriolet</h3>
+        <div>
+          <FiHeart className="icon-heart" />
+          <AiOutlineShareAlt />
+        </div>
+      </WrapperTittle>
+      <WrapperSpecifications>
+        <WrapperLeft>
+          <Carousel>
+            <Slider
+              nextArrow={<IoIosArrowForward />}
+              prevArrow={<IoIosArrowBack />}
+              className="carousel-sustainability"
+              style={{ maxWidth: "746px" }}
+              {...settings}
+            >
+              {images.map((img, index) => (
+                <div key={index} className="wrapper-carousel">
+                  <div>
+                    <img src={img.src} alt="abc" />
+                  </div>
+                  <p className="number-of-slides-details">
+                    <HiOutlinePhotograph style={{ marginRight: "10px" }} />{" "}
+                    {index + 1}/{images.length}
+                  </p>
+                </div>
+              ))}
+            </Slider>
+          </Carousel>
+          <Specifications>
+            <span className="title">Especificações</span>
+            <div>
+              <strong>Ano: </strong>
+              <span className="specifications-value">2020</span>
             </div>
-          ))}
-        </Slider>
-      </Carousel>
+            <div>
+              <strong>Kilome: </strong>
+              <span className="specifications-value">2020</span>
+            </div>
+            <div>
+              <strong>Tipo: </strong>
+              <span className="specifications-value">2020</span>
+            </div>
+            <div>
+              <strong>Transmissão: </strong>
+              <span className="specifications-value">2020</span>
+            </div>
+          </Specifications>
+        </WrapperLeft>
+        <WrapperRight>xxx</WrapperRight>
+      </WrapperSpecifications>
     </div>
   );
 };
