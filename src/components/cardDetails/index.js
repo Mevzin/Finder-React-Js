@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
+import { HiOutlinePhotograph } from "react-icons/hi";
 
 import { Carousel } from "./styles";
 
@@ -53,13 +54,14 @@ const CardDetails = () => {
           {...settings}
         >
           {images.map((img, index) => (
-            <div key={index}>
+            <div key={index} className="wrapper-carousel">
               <div>
                 <img src={img.src} alt="abc" />
               </div>
-              {/*   <p className="text-center pt-4 pb-8">
-              {index + 1} / {images.length}
-            </p> */}
+              <p className="number-of-slides-details">
+                <HiOutlinePhotograph style={{ marginRight: "10px" }} />{" "}
+                {index + 1}/{images.length}
+              </p>
             </div>
           ))}
         </Slider>

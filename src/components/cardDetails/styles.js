@@ -32,4 +32,16 @@ export const Carousel = styled.div`
     left: 10px;
     z-index: 11;
   }
+  div.wrapper-carousel {
+    position: relative;
+  }
+  p.number-of-slides-details {
+    position: absolute;
+    right: 16px;
+    bottom: 10px;
+    color: white;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+  }
 `;
