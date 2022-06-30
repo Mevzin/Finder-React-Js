@@ -43,13 +43,13 @@ const Footer = () => {
           <Options>
             <InputSelect>
               <TbWorld />
-              <select disabled="true">
+              <select disabled={true}>
                 <option>pt-BR</option>
               </select>
             </InputSelect>
             <InputSelect>
               <TbMapPin />
-              <select disabled="true">
+              <select disabled={true}>
                 <option>São Paulo</option>
               </select>
             </InputSelect>
