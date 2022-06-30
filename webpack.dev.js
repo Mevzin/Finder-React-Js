@@ -1,5 +1,5 @@
-// const { DefinePlugin } = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const common = require('./webpack.common');
 const { merge } = require('webpack-merge');
 
@@ -52,6 +52,7 @@ module.exports = merge(common, {
   plugins: [
     new HtmlWebpackPlugin({
       template: './template.dev.html'
-    })
+    }),
+    new ReactRefreshWebpackPlugin()
   ]
 })

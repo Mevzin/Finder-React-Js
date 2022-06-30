@@ -7,10 +7,9 @@ const GLobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Noto Sans', sans-serif;
   }
-
+  
   body {
     background: ${({theme}) => theme.colors.gray900};
-    display: flex;
   }
 `;
 

@@ -1,12 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
-import Navbar from "@components/navBar";
+import { apiFinder } from "@services/api";
 
 import CarImage from "@assets/car.png";
 import ShapeImage from "@assets/shape.png";
-import HorizontalFilter from "../../components/horizontalFilter";
+import CarRoadIcon from "@assets/icons/autoAndRoad.svg";
+
+import Navbar from "@components/navBar";
+import HorizontalFilter from "@components/horizontalFilter";
+import CardMostSearch from "@components/cardMostSearch";
+import CardOffers from "@components/cardOffers";
+import CardOffersMd from "@components/cardOffersMd";
+import Brands from "@components/brands";
 
 import { BsArrowRight } from "react-icons/bs";
+import {
+  TbFileText,
+  TbSettings,
+  TbSearch,
+  TbInfoCircle,
+  TbUsers,
+  TbCalculator,
+} from "react-icons/tb";
 
 import {
   Container,
@@ -23,55 +38,25 @@ import {
   ViewAllResults,
   MostSearchContent,
   OffersContainer,
-  HeaderOffers,
   CardsContainer,
   MainCard,
   SecondaryCard,
+  InfoContainer,
+  InfoContent,
+  FirstTextColum,
+  SecondTextColum,
+  CarRoadImg,
+  FirstContentParagraphs,
+  FirstParagraphText,
+  SecondContentParagraphs,
+  SecondParagraphText,
 } from "./styles";
-
-import { apiFinder } from "../../service/api";
-
-import CardMostSearch from "../../components/cardMostSearch";
-import CardOffers from "../../components/cardOffers";
-import CardOffersMd from "../../components/cardOffersMd";
-
-let i = 1;
-
-const car = [{
-    "id": 0,
-    "model": "Fiat Uno",
-    "version": "Vivace",
-    "brand": 2,
-    "price": "41.999",
-    "year": 2020,
-    "description": "Fiat uno...",
-    "mileage": "até 10.000 km",
-    "cartype": "Hatback",
-    "color": "Branco",
-    "photos": [
-      "https://images.noticiasautomotivas.com.br/img/f/fiat-uno-vivace-1-9.jpeg"
-    ],
-    "additional": [
-      "Transmissão manual",
-      "Freio ABS",
-      "Air Bag"
-    ],
-    "fuel": [
-      "Alcool",
-      "Gasolina",
-      "Flex"
-    ]
-}]
+import Footer from "../../components/footer";
+import { FinderPropsContent } from "../../context/finder";
 
 const Home = () => {
-  const [models, setModels] = useState();
   const [cars, setCars] = useState([]);
-
-  async function getModels() {
-    await apiFinder.get("/cartype").then((response) => {
-      setModels(response.data);
-    });
-  }
+  const {finderProps} = useContext(FinderPropsContent);
 
   async function getCars() {
     await apiFinder.get("/adverts").then((response) => {
@@ -79,14 +64,8 @@ const Home = () => {
     });
   }
 
-  function autoGenKey() {
-    i++;
-    return i;
-  }
-
   useEffect(() => {
-    getModels(),
-    getCars()
+    getCars();
   }, []);
   return (
     <>
@@ -116,8 +95,8 @@ const Home = () => {
               </ViewAllResults>
             </HeaderSection>
             <MostSearchContent>
-              {models?.map((model) => (
-                <CardMostSearch key={autoGenKey()} carModel={model} />
+              {finderProps?.carType.map((model) => (
+                <CardMostSearch key={model.id} carModel={model.value} />
               ))}
             </MostSearchContent>
           </MostSearchContainer>
@@ -133,21 +112,97 @@ const Home = () => {
             </HeaderSection>
             <CardsContainer>
               <MainCard>
-                <CardOffers 
-                  cardOptions={[
-                    'large',
-                    'sale',
-                  ]}
-                  carProps={cars}
-                  />
+                <CardOffers carProps={cars} />
               </MainCard>
               <SecondaryCard>
-                <CardOffersMd carProps={cars}/>
-                <CardOffersMd carProps={cars}/>
+                <CardOffersMd carProps={cars} />
+                <CardOffersMd carProps={cars} />
               </SecondaryCard>
             </CardsContainer>
           </OffersContainer>
+          <Brands />
+          <InfoContainer>
+            <HeaderSection>
+              <TitleSection>
+                <h2>O que temos de diferente</h2>
+              </TitleSection>
+              <ViewAllResults>
+                <p>Como vender carros no Finder</p>
+                <BsArrowRight />
+              </ViewAllResults>
+            </HeaderSection>
+            <InfoContent>
+              <FirstTextColum>
+                <FirstParagraphText>
+                  <TbFileText />
+                  <FirstContentParagraphs>
+                    <h3>Loren Ipsun</h3>
+                    <p>
+                      That’s more than you’ll find on any other major online
+                      automotive marketplace in the USA.
+                    </p>
+                  </FirstContentParagraphs>
+                </FirstParagraphText>
+                <FirstParagraphText>
+                  <TbSearch />
+                  <FirstContentParagraphs>
+                    <h3>Loren Ipsun</h3>
+                    <p>
+                      Our powerful search makes it easy to personalize your
+                      results so you only see the cars and features you care
+                      about.
+                    </p>
+                  </FirstContentParagraphs>
+                </FirstParagraphText>
+                <FirstParagraphText>
+                  <TbSettings />
+                  <FirstContentParagraphs>
+                    <h3>Loren Ipsun</h3>
+                    <p>
+                      Our team is constantly developing new features that make
+                      the process of buying and selling a car simpler.
+                    </p>
+                  </FirstContentParagraphs>
+                </FirstParagraphText>
+              </FirstTextColum>
+              <CarRoadImg src={CarRoadIcon} />
+              <SecondTextColum>
+                <SecondParagraphText>
+                  <TbInfoCircle />
+                  <SecondContentParagraphs>
+                    <h3>Loren Ipsun</h3>
+                    <p>
+                      That’s more than you’ll find on any other major online
+                      automotive marketplace in the USA.
+                    </p>
+                  </SecondContentParagraphs>
+                </SecondParagraphText>
+                <SecondParagraphText>
+                  <TbUsers />
+                  <SecondContentParagraphs>
+                    <h3>Loren Ipsun</h3>
+                    <p>
+                      Our powerful search makes it easy to personalize your
+                      results so you only see the cars and features you care
+                      about.
+                    </p>
+                  </SecondContentParagraphs>
+                </SecondParagraphText>
+                <SecondParagraphText>
+                  <TbCalculator />
+                  <SecondContentParagraphs>
+                    <h3>Loren Ipsun</h3>
+                    <p>
+                      Our team is constantly developing new features that make
+                      the process of buying and selling a car simpler.
+                    </p>
+                  </SecondContentParagraphs>
+                </SecondParagraphText>
+              </SecondTextColum>
+            </InfoContent>
+          </InfoContainer>
         </Content>
+        <Footer />
       </Container>
     </>
   );

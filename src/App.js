@@ -4,17 +4,18 @@ import GlobalStyle from "./styles/global/globalStyle";
 import { ThemeProvider } from "styled-components";
 import theme from "./styles/global/theme";
 
-import Home from "./pages/home";
+import Router from "./routes";
+
+import { FinderProvider } from "./context/finder";
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <>
+    <FinderProvider>
+      <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Home />
-      </>
-
-    </ThemeProvider>
+        <Router />
+      </ThemeProvider>
+    </FinderProvider>
   );
 };
 
