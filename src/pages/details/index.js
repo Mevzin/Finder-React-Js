@@ -4,13 +4,17 @@ import Navbar from "@components/navBar";
 import Footer from "@components/footer";
 import CardDetails from "@components/cardDetails";
 
+import { Container, WrapperNavBar } from "./styles";
+
 const Details = () => {
   return (
-    <>
-      <Navbar />
+    <Container>
+      <WrapperNavBar>
+        <Navbar />
+      </WrapperNavBar>
       <CardDetails />
       <Footer />
-    </>
+    </Container>
   );
 };
 
