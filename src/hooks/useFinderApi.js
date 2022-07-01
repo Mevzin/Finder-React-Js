@@ -1,5 +1,4 @@
-import { useEffect, useState, useContext } from "react";
-import { FinderPropsContent } from "../context/finder";
+import { useEffect, useState } from "react";
 import { apiFinder } from "../service/api";
 
 
@@ -9,7 +8,7 @@ export default function useGetFinderProps() {
   const [fuel, setFuel] = useState({});
   const [conditions, setConditions] = useState({});
   const [carType, setCarType] = useState({});
-  const [additionals, setAdditionals] = useState({});
+  const [additional, setAdditional] = useState({});
   const [locales, setLocales] = useState({});
   const [mileages, setMileages] = useState({});
   const [transmission, setTransmission] = useState({});
@@ -45,9 +44,9 @@ export default function useGetFinderProps() {
       });
     }
 
-    async function getAdditionals() {
+    async function getAdditional() {
       await apiFinder.get("/additional").then((response) => {
-        setAdditionals(response.data);
+        setAdditional(response.data);
       });
     }
 
@@ -74,7 +73,7 @@ export default function useGetFinderProps() {
     getFuel();
     getConditions();
     getCarTypes();
-    getAdditionals();
+    getAdditional();
     getLocales();
     getMileages();
     getTransmission();
@@ -85,7 +84,7 @@ export default function useGetFinderProps() {
     fuel,
     conditions,
     carType,
-    additionals,
+    additional: additional,
     locales,
     mileages,
     transmission
@@ -95,7 +94,7 @@ export default function useGetFinderProps() {
     && colors.length > 0 
     && fuel.length > 0 
     && carType.length > 0  
-    && additionals.length > 0 
+    && additional.length > 0 
     && locales.length > 0 
     && mileages.length > 0 
     && transmission.length > 0){
