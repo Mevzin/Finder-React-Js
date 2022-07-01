@@ -1,9 +1,18 @@
 import React from "react";
 
+import Navbar from "@components/navBar";
+import Footer from "@components/footer";
+
+import { Container, Content } from "./styles";
 const Catalog = () => {
   return (
     <>
-      <h3>catalogo</h3>
+      <Container>
+        <Content>
+          <Navbar />
+        </Content>
+        <Footer />
+      </Container>
     </>
   );
 };
