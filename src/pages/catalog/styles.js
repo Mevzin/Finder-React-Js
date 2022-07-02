@@ -10,7 +10,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 1296px;
-  margin-height: 100%;
+  /*   margin-height: 100%; */
   margin: 0 auto;
 
   hr {
@@ -35,12 +35,6 @@ export const Content = styled.div`
 
     color: ${({ theme }) => theme.colors.white};
   }
-`;
-
-export const ContentFilterCard = styled.div`
-  display: flex;
-  margin: 60px 0px 329px 0px;
-
   p {
     font-family: "Noto Sans";
     font-style: normal;
@@ -60,6 +54,10 @@ export const ContentFilterCard = styled.div`
 
     color: ${({ theme }) => theme.colors.white};
   }
+`;
+
+export const ContentFilterCard = styled.div`
+  display: flex;
 `;
 
 export const ContainerFilters = styled.div`
@@ -145,7 +143,7 @@ export const CarsUsed = styled.div`
 
 export const Titulo = styled.div`
   margin-top: 16px;
-  margin-left: -160px;
+  /* margin-left: -160px; */
   h1 {
     font-family: "Noto Sans";
     font-style: normal;
@@ -158,8 +156,8 @@ export const Titulo = styled.div`
 
 export const Order = styled.div`
   display: flex;
-  margin-top: 130px;
-  margin-left: -280px;
+  margin-top: 59px;
+  /*  margin-left: -280px; */
 
   span {
     width: 180px;
@@ -180,7 +178,7 @@ export const Order = styled.div`
 export const SortyBy = styled.div`
   display: flex;
   margin-top: auto;
-  margin-left: -430px;
+  /* margin-left: -430px; */
 
   span {
     width: 180px;
@@ -197,3 +195,13 @@ export const SortyBy = styled.div`
     margin-right: 24px;
   }
 `;
+
+export const WrapperCatalog = styled.div`
+  display: flex;
+  margin-top: 60px;
+`;
+export const ContentListCards = styled.div`
+  width: 100%;
+`;
+export const HeaderFilterRight = styled.div``;
+export const ListCards = styled.div``;
