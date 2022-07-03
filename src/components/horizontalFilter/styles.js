@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FilterContainer = styled.div`
+export const FilterContainer = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,7 +20,6 @@ export const ButtonNewCars = styled.button`
   width: 60px;
   height: 40px;
   font-size: 16px;
-  font-weight: 400;
   margin-right: 12px;
   color: ${({ theme }) => theme.colors.white};
   background: ${({ theme }) => theme.colors.transparent};
@@ -101,12 +100,12 @@ export const FormFilter = styled.div`
   }
 
   option {
-    max-width: 100%;
+    width: 100%;
     height: 40px;
     background: ${({ theme }) => theme.colors.gray800};
     border: none;
     font-size: 16px;
-    color: ${({ theme }) => theme.colors.gray700};
+    color: ${({ theme }) => theme.colors.gray400};
     cursor: pointer;
   }
 `;

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -164,4 +165,8 @@ export const CardDetail = styled.div`
   span {
     font-size: 12px;
   }
+`;
+
+export const LinkCard = styled(Link)`
+  text-decoration: none;
 `;

@@ -11,10 +11,13 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.scss'],
     alias: {
-      '@':  path.join(__dirname, 'src'),
       "@components": path.resolve(__dirname, "src/components"),
+      "@contexts": path.resolve(__dirname, "src/context"),
       "@services": path.resolve(__dirname, "src/service"),
       "@assets": path.resolve(__dirname, "src/assets"),
+      "@hooks": path.resolve(__dirname, "src/hooks"),
+      "@pages": path.resolve(__dirname, "src/pages"),
+      '@':  path.join(__dirname, 'src')
     }
   },
   plugins: [

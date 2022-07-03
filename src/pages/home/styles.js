@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -214,4 +215,20 @@ export const SecondContentParagraphs = styled.div`
 export const CarRoadImg = styled.img`
   position: relative;
   top: -32.22px;
+`;
+
+export const ContainerLoading = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: ${({ theme }) => theme.colors.white};
+  height: 100vh;
+`;
+
+export const LinkRedirect = styled(Link)`
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
 `;

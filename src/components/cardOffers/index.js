@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import {
   Container,
@@ -14,22 +14,29 @@ import {
   DividerDescription,
   FooterCard,
   CardDetail,
+  LinkCard,
 } from "./styles";
 
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { RiMapPinLine } from "react-icons/ri";
 import { TbDashboard, TbManualGearbox } from "react-icons/tb";
 
-import PetrolIcon from "@assets/icons/petrol.svg";
 import Badge from "../badge";
 import FavoriteButton from "../favoriteButton";
+
+import CardFuel from "../cardFuel";
+import { Link } from "react-router-dom";
+import { useFinder } from "../../context/finder";
 
 const CardOffers = ({ carProps }) => {
   const [imageIndex, setImageIndex] = useState(0);
   const [moreImages, setMoreImages] = useState(false);
 
+  const { finderProps } = useFinder();
+
+
   function handleNextImage() {
-    if (imageIndex == carProps[0]?.photos.length - 1) {
+    if (imageIndex == carProps?.photos.length - 1) {
       setImageIndex(0);
       return;
     }
@@ -38,17 +45,18 @@ const CardOffers = ({ carProps }) => {
 
   function handlePrevImage() {
     if (imageIndex == 0) {
-      setImageIndex(carProps[0]?.photos.length - 1);
+      setImageIndex(carProps?.photos.length - 1);
       return;
     }
     setImageIndex(imageIndex - 1);
   }
 
-  if (carProps[0]?.photos.length > 1) {
+  if (carProps?.photos.length > 1) {
     setMoreImages(true);
   }
 
   return (
+    <LinkCard to={'/detalhes/carId='+carProps?.id}>
     <Container>
       <ImageSlider>
         {moreImages && (
@@ -56,8 +64,8 @@ const CardOffers = ({ carProps }) => {
             <BsChevronLeft />
           </PrevButton>
         )}
-        <Badge typeBadge={"usado"} />
-        <ImageCar src={carProps[0]?.photos[imageIndex]} />
+        <Badge typeBadge={finderProps.hasOwnProperty('conditions') && finderProps?.conditions[carProps?.condition].label} />
+        <ImageCar src={carProps?.photos[imageIndex]} />
         <FavoriteButton />
         {moreImages && (
           <NextButton onClick={() => handleNextImage()}>
@@ -66,30 +74,30 @@ const CardOffers = ({ carProps }) => {
         )}
       </ImageSlider>
       <Description>
-        <YearCar>{carProps[0]?.year}</YearCar>
-        <NameCar>{carProps[0]?.model}</NameCar>
-        <Price>${carProps[0]?.price}</Price>
+        <YearCar>{carProps?.year}</YearCar>
+        <NameCar>{carProps?.model}</NameCar>
+        <Price>${carProps?.price}</Price>
         <Locale>
           <RiMapPinLine />
-          <p>{carProps[0]?.color}</p>
+          <p>{finderProps !== {} && finderProps?.locales[carProps?.location].value}</p>
         </Locale>
         <DividerDescription />
         <FooterCard>
           <CardDetail>
             <TbDashboard />
-            <span>{carProps[0]?.mileage}</span>
+            <span>{carProps?.mileage}</span>
           </CardDetail>
           <CardDetail>
             <TbManualGearbox />
-            <span>{carProps[0]?.additional[0]}</span>
+            <span>{carProps?.additional[0]}</span>
           </CardDetail>
           <CardDetail>
-            <img src={PetrolIcon} />
-            <span>{carProps[0]?.fuel[0]}</span>
+            <CardFuel fuel={carProps?.fuel}/>
           </CardDetail>
         </FooterCard>
       </Description>
     </Container>
+    </LinkCard>
   );
 };
 
