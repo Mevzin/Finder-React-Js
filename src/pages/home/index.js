@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import { apiFinder } from "@services/api";
 
@@ -53,16 +53,11 @@ import {
   SecondParagraphText,
 } from "./styles";
 import Footer from "../../components/footer";
+import { FinderPropsContent } from "../../context/finder";
 
 const Home = () => {
-  const [models, setModels] = useState();
   const [cars, setCars] = useState([]);
-
-  async function getModels() {
-    await apiFinder.get("/cartype").then((response) => {
-      setModels(response.data);
-    });
-  }
+  const {finderProps} = useContext(FinderPropsContent);
 
   async function getCars() {
     await apiFinder.get("/adverts").then((response) => {
@@ -71,7 +66,7 @@ const Home = () => {
   }
 
   useEffect(() => {
-    getModels(), getCars();
+    getCars();
   }, []);
   return (
     <>
@@ -101,7 +96,7 @@ const Home = () => {
               </ViewAllResults>
             </HeaderSection>
             <MostSearchContent>
-              {models?.map((model) => (
+              {finderProps?.carType.map((model) => (
                 <CardMostSearch key={model.id} carModel={model.value} />
               ))}
             </MostSearchContent>

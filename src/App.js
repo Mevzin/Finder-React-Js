@@ -6,12 +6,16 @@ import theme from "./styles/global/theme";
 
 import Router from "./routes";
 
+import { FinderProvider } from "./context/finder";
+
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Router />
-    </ThemeProvider>
+    <FinderProvider>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Router />
+      </ThemeProvider>
+    </FinderProvider>
   );
 };
 
