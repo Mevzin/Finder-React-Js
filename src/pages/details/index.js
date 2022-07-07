@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import Navbar from "@components/navBar";
 import Footer from "@components/footer";
 import CardDetails from "@components/cardDetails";
+import DetailsCarousel from "@components/DetailsCarousel";
 
 import { Container, WrapperNavBar } from "./styles";
 
@@ -21,6 +22,7 @@ const Details = () => {
           <Navbar />
         </WrapperNavBar>
         <CardDetails />
+        <DetailsCarousel />
         <Footer />
       </Container>
     </motion.div>

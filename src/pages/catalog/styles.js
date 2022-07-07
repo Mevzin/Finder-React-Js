@@ -10,7 +10,6 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 1296px;
-  /*   margin-height: 100%; */
   margin: 0 auto;
 
   hr {
@@ -25,7 +24,6 @@ export const Content = styled.div`
     left: 0px;
     margin-top: 24px;
 
-    font-family: "Noto Sans";
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
@@ -36,7 +34,6 @@ export const Content = styled.div`
     color: ${({ theme }) => theme.colors.white};
   }
   p {
-    font-family: "Noto Sans";
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -46,7 +43,6 @@ export const Content = styled.div`
     opacity: 0.5;
   }
   h5 {
-    font-family: "Noto Sans";
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -144,7 +140,6 @@ export const Titulo = styled.div`
   margin-top: 16px;
   /* margin-left: -160px; */
   h1 {
-    font-family: "Noto Sans";
     font-style: normal;
     font-weight: 700;
     font-size: 40px;
