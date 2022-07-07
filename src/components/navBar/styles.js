@@ -10,11 +10,10 @@ export const Container = styled.div`
   z-index: 1;
 `;
 
-export const LogoLink =  styled.div`
+export const LogoLink = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-
 `;
 
 export const Logo = styled.div`
@@ -32,36 +31,67 @@ export const Links = styled.div`
     color: ${({ theme }) => theme.colors.white};
     font-family: Noto Sans, sans-serif;
     font-size: 14px;
+    text-decoration: none;
   }
 `;
 export const Buttons = styled.div``;
 
 export const ButtonSignIn = styled.button`
   background: transparent;
+  align-items: center;
+  justify-content: center;
   border: none;
   width: 110px;
   height: 36px;
-  align-items: center;
-  font-family: Noto Sans, sans-serif;
   color: ${({ theme }) => theme.colors.white};
-  
+  border-radius: 8px;
+  font-family: Noto Sans, sans-serif;
+  cursor: pointer;
 
-  img {
+  svg {
     margin-right: 5px;
+    font-size: 14px;
+    color: ${({ theme }) => theme.colors.white};
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors.white};
   }
 `;
 
 export const ButtonSignUp = styled.button`
   background: ${({ theme }) => theme.colors.primary};
+  align-items: center;
+  justify-content: center;
   border: none;
   width: 110px;
   height: 36px;
-  align-items: center;
   color: ${({ theme }) => theme.colors.white};
   border-radius: 8px;
   font-family: Noto Sans, sans-serif;
-  img {
+  cursor: pointer;
+
+  svg {
     margin-right: 5px;
+    font-size: 14px;
+    color: ${({ theme }) => theme.colors.white};
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors.white};
   }
 `;
-

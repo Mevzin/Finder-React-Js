@@ -4,7 +4,7 @@ export const CheckboxAll = styled.div``;
 
 export const Check = styled.div`
   margin: 12px 0px 12px 0px;
-  height: 150px;
+  max-height: 150px;
   overflow: auto;
   color: ${({ theme }) => theme.colors.white};
 

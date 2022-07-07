@@ -1,64 +1,106 @@
-import React from "react";
-import { HiOutlineLocationMarker } from "react-icons/hi";
-import { TbDashboard } from "react-icons/tb";
-
+import React, { useState } from "react";
 import {
-  Wrapper,
+  Container,
+  ImageSlider,
+  PrevButton,
+  NextButton,
+  YearCar,
+  NameCar,
+  Price,
+  Locale,
   ImageCar,
-  InfoPrimary,
-  InfoSecondary,
-  CardBottom,
-  Tag,
+  Description,
+  DividerDescription,
+  FooterCard,
+  CardDetail,
+  LinkCard,
 } from "./styles";
 
-const CarCardCatalog = () => {
-  return (
-    <Wrapper>
-      <ImageCar
-        src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-        alt="carros"
-      />
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import { RiMapPinLine } from "react-icons/ri";
+import { TbDashboard, TbManualGearbox } from "react-icons/tb";
 
-      <CardBottom>
-        <div className="ano">
-          <span>1995</span>
-          <div className="containercheckboxtipo">
-            <input
-              type="checkbox"
-              id="compare"
-              value="compareid"
-              name="compare"
-            />
-            <label className="checkbox">Compare</label>
-          </div>
-        </div>
-        <InfoPrimary>
-          <p> modelo </p>
-          <span>priece </span>
-          <div>
-            {" "}
-            <HiOutlineLocationMarker /> Chicago
-          </div>
-        </InfoPrimary>
-        <InfoSecondary>
-          <div>
-            <TbDashboard />
-            <div>247k mi</div>
-          </div>
-          <div>
-            <HiOutlineLocationMarker />
-            <div>247k mi</div>
-          </div>
-          <div>
-            <HiOutlineLocationMarker />
-            <div>247k mi</div>
-          </div>
-        </InfoSecondary>
-      </CardBottom>
-      <Tag>
-        <div>usado</div>
-      </Tag>
-    </Wrapper>
+import Badge from "../badge";
+import FavoriteButton from "../favoriteButton";
+
+import CardFuel from "../cardFuel";
+import { useFinder } from "../../context/finder";
+
+
+const CarCardCatalog = ({ carProps }) => {
+  const [imageIndex, setImageIndex] = useState(0);
+  const [moreImages, setMoreImages] = useState(true);
+
+  const { finderProps } = useFinder();
+
+
+  function handleNextImage() {
+    if (imageIndex == carProps?.photos.length - 1) {
+      setImageIndex(0);
+      return;
+    }
+    setImageIndex(imageIndex + 1);
+  }
+
+  function handlePrevImage() {
+    if (imageIndex == 0) {
+      setImageIndex(carProps?.photos.length - 1);
+      return;
+    }
+    setImageIndex(imageIndex - 1);
+  }
+
+  return (
+    <Container>
+      <ImageSlider>
+        {moreImages && (
+          <PrevButton onClick={() => handlePrevImage()}>
+            <BsChevronLeft />
+          </PrevButton>
+        )}
+        <Badge
+          typeBadge={
+            finderProps.hasOwnProperty("conditions") &&
+            finderProps?.conditions[carProps?.condition].value
+          }
+        />
+        <ImageCar src={carProps?.photos[imageIndex]} />
+        <FavoriteButton />
+        {moreImages && (
+          <NextButton onClick={() => handleNextImage()}>
+            <BsChevronRight />
+          </NextButton>
+        )}
+      </ImageSlider>
+      <LinkCard to={"/detalhes/carId=" + carProps?.id}>
+        <Description>
+          <YearCar>{carProps?.year}</YearCar>
+          <NameCar>{carProps?.model}</NameCar>
+          <Price>{(carProps?.price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</Price>
+          <Locale>
+            <RiMapPinLine />
+            <p>
+              {finderProps !== {} &&
+                finderProps?.locales[carProps?.location].value}
+            </p>
+          </Locale>
+          <DividerDescription />
+          <FooterCard>
+            <CardDetail>
+              <TbDashboard />
+              <span>{carProps?.mileage} km</span>
+            </CardDetail>
+            <CardDetail>
+              <TbManualGearbox />
+              <span>{finderProps?.transmission[carProps?.transmission].value}</span>
+            </CardDetail>
+            <CardDetail>
+              <CardFuel fuel={carProps?.fuel} />
+            </CardDetail>
+          </FooterCard>
+        </Description>
+      </LinkCard>
+    </Container>
   );
 };
 

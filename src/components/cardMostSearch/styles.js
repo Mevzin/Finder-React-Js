@@ -11,6 +11,7 @@ export const Container = styled.div`
   border-radius: 12px;
   margin-top: 22px;
   cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.transparent};

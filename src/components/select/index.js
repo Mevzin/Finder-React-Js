@@ -2,11 +2,15 @@ import React from "react";
 
 import { Selection } from "./styles";
 
-const Select = ({ value }) => {
+const Select = ({placeholder, value, disabled, ...rest }) => {
   return (
-    <Selection>
+    <Selection
+      disabled={disabled}
+      {...rest}
+    >
+      <option value="">{placeholder}</option>
       {value.map((value, index) => {
-        return <option key={index}>{value.value}</option>;
+        return <option key={index} value={value.id}>{value.value||value.model}</option>;
       })}
     </Selection>
   );
