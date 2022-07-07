@@ -6,16 +6,23 @@ import CardDetails from "@components/cardDetails";
 
 import { Container, WrapperNavBar } from "./styles";
 
+import { motion } from "framer-motion";
 
 const Details = () => {
   return (
-    <Container>
-      <WrapperNavBar>
-        <Navbar />
-      </WrapperNavBar>
-      <CardDetails />
-      <Footer />
-    </Container>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.2 } }}
+    >
+      <Container>
+        <WrapperNavBar>
+          <Navbar />
+        </WrapperNavBar>
+        <CardDetails />
+        <Footer />
+      </Container>
+    </motion.div>
   );
 };
 
