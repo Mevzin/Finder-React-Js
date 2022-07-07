@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 1330px;
-  margin-left: 275px;
+  width: 1296px;
+  margin: 0 auto;
   margin-bottom: 75px;
 `;
 
 export const TitlePublished = styled.h2`
-  font-family: "Noto Sans", sans-serif;
   color: white;
   margin-bottom:30px;
 `;
@@ -28,7 +27,6 @@ export const ArrowImg = styled.img`
 `;
 
 export const ButtonPublish = styled.button`
-  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -127,7 +125,6 @@ export const NewTitle = styled.p`
 `;
 
 export const CarTitle = styled.h5`
-  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
@@ -139,7 +136,6 @@ export const CarTitle = styled.h5`
 `;
 
 export const CardPrice = styled.p`
-  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -157,7 +153,6 @@ export const Place = styled.div`
 `;
 
 export const PlaceTitle = styled.p`
-  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -197,7 +192,6 @@ export const InfoContainer = styled.div`
 `;
 
 export const InfoTitle = styled.div`
-    font-family: "Noto Sans", sans-serif;
     color: white;
 `;
 

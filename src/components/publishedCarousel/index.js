@@ -43,7 +43,6 @@ import {
   CardPublishImg,
 
 } from "./styles";
-import styled from "styled-components";
 
 const PublishedCarousel = () => {
 
