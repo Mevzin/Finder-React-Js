@@ -207,17 +207,6 @@ const Catalog = () => {
   }
 
   useEffect(() => {
-    if (finderProps.hasOwnProperty("isLoading")) {
-      setIsLoading(finderProps?.isLoading);
-      setSearchIsLoading(finderProps?.isLoading);
-    }
-    if(pass & filterParams != "all"){
-      handleCheckCarBrand(filterObject.brand);
-      handleCheckCarModel(filterObject.model);
-      handleCheckCarType(filterObject.carType);
-      handleCheckLocation(filterObject.location);
-      pass = false
-    }
     handleConditionType(state);
   }, [finderProps]);
 

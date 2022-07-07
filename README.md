@@ -15,6 +15,10 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## Bibliotecas
 
 - [Google Fonts](https://fonts.google.com/)
+- [Styled Components](https://styled-components.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Axios](https://axios-http.com/)
+- [Slick](https://react-slick.neostack.com/)
 
 ## 💻 Projeto
 
