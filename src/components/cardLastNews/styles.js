@@ -13,14 +13,12 @@ export const ImagePost = styled.img`
 
 export const BadgeText = styled.span`
   font-size: 12px;
-  font-family: "Noto Sans";
   color: ${({ theme }) => theme.colors.primary};
   margin-bottom: 4px;
 `;
 
 export const TextCard = styled.span`
   font-size: 16px;
-  font-family: "Noto Sans";
   color: ${({ theme }) => theme.colors.gray600};
   margin-bottom: 16px;
 `;
@@ -37,7 +35,6 @@ export const ImageProfile = styled.img``;
 
 export const NameProfile = styled.span`
   font-size: 14px;
-  font-family: "Noto Sans";
   color: ${({ theme }) => theme.colors.white};
   margin-bottom: 4px;
 `;
