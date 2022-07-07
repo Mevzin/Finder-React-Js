@@ -99,7 +99,7 @@ export const ViewAllResults = styled.div`
 
 export const MostSearchContent = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 `;
 
 export const OffersContainer = styled.div`

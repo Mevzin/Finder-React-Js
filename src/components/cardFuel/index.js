@@ -11,7 +11,7 @@ const CardFuel = ({fuel}) => {
     const fuelResult = finderProps.fuel.find((fuel) => idFuel === fuel.id);
     
     return(
-          <span key={idFuel}>{fuelResult?.label}</span>
+          <span key={idFuel}>{fuelResult?.value}</span>
     );
   }
 
@@ -20,11 +20,8 @@ const CardFuel = ({fuel}) => {
     <Container>
       <FrontCard>
         <img src={PetrolIcon} />
-        {finderProps.hasOwnProperty('fuel') && fuel?.length > 1 ? ( getLabelFuel(fuel[0])) : ( <span>Flex - {fuel?.length}</span>)}
+        {finderProps.hasOwnProperty('fuel') && getLabelFuel(fuel)}
       </FrontCard>
-      <BackCard>
-        {finderProps.hasOwnProperty('fuel') && fuel?.map((iFuel) => (getLabelFuel(iFuel)))} 
-      </BackCard>
     </Container>
   );
 };

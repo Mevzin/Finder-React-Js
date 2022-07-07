@@ -1,15 +1,25 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+export const LinkCard = styled(Link)`
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height:100%;
+  justify-content: center;
+  z-index: 1;
+  margin: 0;
+`;
+
 export const Container = styled.div`
   display: flex;
-  flex-direction: row;
-  width: 638px;
-  height: 239px;
+  flex-direction: column;
+  width: 471px;
+  height: 480px;
+  background: ${({ theme }) => theme.colors.transparent};
   border: 1px solid transparent;
   border-radius: 12px;
-  background: ${({ theme }) => theme.colors.transparent};
-
   transition: 0.2s;
 
   &:hover {
@@ -23,8 +33,7 @@ export const ImageSlider = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 260px;
-  height: 100%;
+  width: 100%;
 `;
 
 export const PrevButton = styled.button`
@@ -80,12 +89,13 @@ export const NextButton = styled.button`
 
 export const YearCar = styled.span`
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 400;
   color: ${({ theme }) => theme.colors.white};
   margin-bottom: 4px;
 `;
 
-export const NameCar = styled.h1`
+export const NameCar = styled.h2`
+  text-decoration: none;
   font-size: 18px;
   font-weight: 700;
   color: ${({ theme }) => theme.colors.white};
@@ -113,11 +123,9 @@ export const Locale = styled.div`
 
 export const ImageCar = styled.img`
   width: 100%;
-  height: 100%;
-  border-radius: 12px 0 0 12px;
+  height: 241px;
+  border-radius: 12px 12px 0 0;
   transition: 0.2s;
-  background-size: cover;
-
 
   ${Container}:hover & {
     filter: grayscale(20%);
@@ -127,9 +135,9 @@ export const ImageCar = styled.img`
 export const Description = styled.div`
   display: flex;
   flex-direction: column;
+  width: 95%;
   justify-content: center;
   margin: auto;
-  width: 336px;
 `;
 
 export const DividerDescription = styled.div`
@@ -150,9 +158,8 @@ export const CardDetail = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  width: 104px;
-  height: 62px;
+  width: 136px ;
+  height: 62px ;
   background: ${({ theme }) => theme.colors.gray900};
   color: ${({ theme }) => theme.colors.white};
   border-radius: 8px;
@@ -165,13 +172,4 @@ export const CardDetail = styled.div`
   span {
     font-size: 12px;
   }
-`;
-
-export const LinkCard = styled(Link)`
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: auto;
-  width: 336px;
 `;

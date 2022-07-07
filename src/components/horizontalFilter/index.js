@@ -1,28 +1,26 @@
-import React, { useContext, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { useTheme } from "styled-components";
 
 import {
   FilterContainer,
   SelectionFilterButtons,
-  ButtonNewCars,
-  ButtonUsedCars,
   FormFilter,
   ButtonSearch,
   InputContent,
 } from "./styles";
 
 import { RiStarLine, RiMapPinLine } from "react-icons/ri";
-
 import { AiOutlineSearch } from "react-icons/ai";
-
 import { TbCar } from "react-icons/tb";
-
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
 
 import DividerImg from "@assets/divider.png";
-import { apiFinder } from "@services/api";
+
 import { useFinder } from "../../context/finder";
+
+import { apiFinder } from "@services/api";
+
 import TypeButton from "../typeButton";
 
 export default function HorizontalFilter() {
@@ -30,45 +28,49 @@ export default function HorizontalFilter() {
   const { finderProps } = useFinder();
   const [cars, setCars] = useState({});
   const [isDisabled, setIsDisabled] = useState(true);
-  const [conditionType, setConditionType] = useState("");
+  const [conditionType, setConditionType] = useState("novo");
   const [filterData, setFilterData] = useState({});
+  const [urlParams, setUrlParams] = useState("");
+  const [searchInput, setSearchInput] = useState("");
+  const [locationSelect, setLocationSelect] = useState("");
+  const [modelSelect, setModelSelect] = useState("");
+  const [brandSelect, setBrandSelect] = useState("");
+  const [carTypeSelect, setCarTypeSelect] = useState("");
 
   async function getCarByType(brandIdSelected) {
-    await apiFinder
-      .get(`/adverts/?brand=${brandIdSelected}`)
-      .then((response) => {
-        setCars(response.data);
-        setIsDisabled(false);
-      });
+    if (brandIdSelected !== "") {
+      await apiFinder
+        .get(`/adverts/?brand=${brandIdSelected}`)
+        .then((response) => {
+          setCars(response.data);
+          setIsDisabled(false);
+        });
 
-      setFilterData({...filterData, model: brandIdSelected});
-  }
-
-  function handleConditionType(type) {
-    setConditionType(type);
-    setFilterData({ ...filterData, condition: type });
-  }
-
-  function makeUrlParams(parameters){
-    for(let i = 0 ; i < parameters.length; i++){
-      if(parameters[i] !== undefined || parameters[i] !== 'null'){
-      }
-      alert(parameters[i]+"&");
+      setBrandSelect("brand=" + brandIdSelected + "&");
+    } else {
+      setBrandSelect("");
     }
   }
 
+  useEffect(() => {
+    setUrlParams(
+      searchInput + brandSelect + modelSelect + carTypeSelect + locationSelect
+    );
+    urlParams === "" && setUrlParams("all");
+  }, [searchInput, locationSelect, modelSelect, brandSelect, carTypeSelect]);
+
   return (
-    <FilterContainer action={`/catalogo/${conditionType}/${makeUrlParams(filterData)}`}>
+    <FilterContainer action={`/catalogo/${conditionType}/${urlParams}`}>
       <SelectionFilterButtons>
         <TypeButton
           title={"Novo"}
           isActive={conditionType === "novo"}
-          onClick={() => handleConditionType("novo")}
+          onClick={() => setConditionType("novo")}
         />
         <TypeButton
           title={"Usado"}
           isActive={conditionType === "usado"}
-          onClick={() => handleConditionType("usado")}
+          onClick={() => setConditionType("usado")}
         />
       </SelectionFilterButtons>
       <FormFilter>
@@ -77,18 +79,28 @@ export default function HorizontalFilter() {
           <input
             type="text"
             placeholder="Pesquise por ..."
-            onChange={(e) => setFilterData({ ...filterData, search: e.target.value })}
+            onChange={(e) =>
+              setSearchInput(
+                (e.target.value === "") | " "
+                  ? ""
+                  : "search=" + encodeURI(e.target.value) + "&"
+              )
+            }
           />
         </InputContent>
         <img src={DividerImg} />
         <InputContent>
           <RiStarLine color={theme.colors.gray700} />
-          <select onChange={(e) => getCarByType(e.target.value)}>
-            <option value="null">Marca</option>
+          <select
+            onChange={(e) =>
+              getCarByType(e.target.value === "" ? "" : e.target.value)
+            }
+          >
+            <option value="">Marca</option>
             {finderProps !== {} &&
               finderProps?.brands.map((model) => (
                 <option key={model.id} value={model.id}>
-                  {model.name}
+                  {model.value}
                 </option>
               ))}
           </select>
@@ -96,9 +108,15 @@ export default function HorizontalFilter() {
         <img src={DividerImg} />
         <InputContent>
           <HiOutlineMenuAlt4 color={theme.colors.gray700} />
-          <select disabled={isDisabled}
-          onChange={(e) => setFilterData({ ...filterData, carId: e.target.value })}>
-            <option value="null">Modelo</option>
+          <select
+            disabled={isDisabled}
+            onChange={(e) =>
+              setModelSelect(
+                e.target.value === "" ? "" : "model=" + e.target.value + "&"
+              )
+            }
+          >
+            <option value="">Modelo</option>
             {cars.length > 0 &&
               cars?.map((car) => (
                 <option key={car.id} value={car.id}>
@@ -110,8 +128,13 @@ export default function HorizontalFilter() {
         <img src={DividerImg} />
         <InputContent>
           <TbCar color={theme.colors.gray700} />
-          <select 
-          onChange={(e) => setFilterData({ ...filterData, carType: e.target.value })}>
+          <select
+            onChange={(e) =>
+              setCarTypeSelect(
+                e.target.value === "" ? "" : "carType=" + e.target.value + "&"
+              )
+            }
+          >
             <option value="">Tipo</option>
             {finderProps.hasOwnProperty("carType") &&
               finderProps?.carType.map((type) => (
@@ -125,7 +148,11 @@ export default function HorizontalFilter() {
         <InputContent>
           <RiMapPinLine color={theme.colors.gray700} />
           <select
-            onChange={(e) => setFilterData({ ...filterData, locale: e.target.value })}
+            onChange={(e) =>
+              setLocationSelect(
+                e.target.value === "" ? "" : "location=" + e.target.value
+              )
+            }
           >
             <option value="">Local</option>
             {finderProps.hasOwnProperty("locales") &&

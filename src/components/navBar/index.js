@@ -29,11 +29,11 @@ const Navbar = () => {
           </Logo>
           <Links>
             <img src={Divider} />
-            <Link to="/catalogo/novo">Novos</Link>
-            <Link to="/catalogo/novo">Usados</Link>
-            <Link to="/catalogo/novo">Vender</Link>
-            <Link to="/catalogo/novo">Comprar</Link>
-            <Link to="/detalhes/123">Novidades</Link>
+            <Link to="/catalogo/novo/all">Novos</Link>
+            <Link to="/catalogo/novo/all">Usados</Link>
+            <Link to="/catalogo/novo/all">Vender</Link>
+            <Link to="/catalogo/novo/all">Comprar</Link>
+            <Link to="/catalogo/novo/all">Novidades</Link>
           </Links>
         </LogoLink>
         <Buttons>

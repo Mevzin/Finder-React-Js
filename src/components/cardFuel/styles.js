@@ -27,23 +27,5 @@ export const FrontCard = styled.div`
   span {
     font-size: 12px;
   }
-
-  ${Container}:hover & {
-    display: none;
-  }
 `;
 
-export const BackCard = styled.div`
-  display: none;
-  flex-direction: column;
-  max-height: 100%;
-
-  span {
-    font-size: 12px;
-    text-align: center;
-  }
-
-  ${Container}:hover & {
-    display: flex;
-  }
-`;

@@ -5,6 +5,7 @@ export const FilterContainer = styled.form`
   flex-direction: column;
   justify-content: center;
   width: 100%;
+  z-index: 2;
 `;
 
 export const SelectionFilterButtons = styled.div`
@@ -81,7 +82,7 @@ export const FormFilter = styled.div`
     font-size: 16px;
     color: ${({ theme }) => theme.colors.gray700};
 
-    &:focus{
+    &:focus {
       outline: 0;
     }
   }
@@ -94,7 +95,7 @@ export const FormFilter = styled.div`
     font-size: 16px;
     color: ${({ theme }) => theme.colors.gray700};
 
-    &:focus{
+    &:focus {
       outline: 0;
     }
   }
@@ -120,6 +121,13 @@ export const ButtonSearch = styled.button`
   justify-content: center;
   border-radius: 8px;
   font-family: Noto Sans, sans-serif;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.primary};
+  }
 `;
 
 export const InputContent = styled.div`
@@ -135,13 +143,10 @@ export const InputContent = styled.div`
   cursor: pointer;
 
   &:hover {
-      border: 1px solid ${({ theme }) => theme.colors.primary};
+    border: 1px solid ${({ theme }) => theme.colors.primary};
   }
-
 
   svg {
     margin-right: 8px;
-
   }
-
 `;

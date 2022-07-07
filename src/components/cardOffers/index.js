@@ -30,10 +30,9 @@ import { useFinder } from "../../context/finder";
 
 const CardOffers = ({ carProps }) => {
   const [imageIndex, setImageIndex] = useState(0);
-  const [moreImages, setMoreImages] = useState(false);
+  const [moreImages, setMoreImages] = useState(true);
 
   const { finderProps } = useFinder();
-
 
   function handleNextImage() {
     if (imageIndex == carProps?.photos.length - 1) {
@@ -51,12 +50,11 @@ const CardOffers = ({ carProps }) => {
     setImageIndex(imageIndex - 1);
   }
 
-  if (carProps?.photos.length > 1) {
-    setMoreImages(true);
-  }
+  // if (carProps?.photos.length > 1) {
+  //   setMoreImages(true);
+  // }
 
   return (
-    <LinkCard to={'/detalhes/carId='+carProps?.id}>
     <Container>
       <ImageSlider>
         {moreImages && (
@@ -64,40 +62,49 @@ const CardOffers = ({ carProps }) => {
             <BsChevronLeft />
           </PrevButton>
         )}
-        <Badge typeBadge={finderProps.hasOwnProperty('conditions') && finderProps?.conditions[carProps?.condition].label} />
+        <Badge
+          typeBadge={
+            finderProps.hasOwnProperty("conditions") &&
+            finderProps?.conditions[carProps?.condition].value
+          }
+        />
         <ImageCar src={carProps?.photos[imageIndex]} />
         <FavoriteButton />
         {moreImages && (
           <NextButton onClick={() => handleNextImage()}>
-          <BsChevronRight />
-        </NextButton>
+            <BsChevronRight />
+          </NextButton>
         )}
       </ImageSlider>
-      <Description>
-        <YearCar>{carProps?.year}</YearCar>
-        <NameCar>{carProps?.model}</NameCar>
-        <Price>${carProps?.price}</Price>
-        <Locale>
-          <RiMapPinLine />
-          <p>{finderProps !== {} && finderProps?.locales[carProps?.location].value}</p>
-        </Locale>
-        <DividerDescription />
-        <FooterCard>
-          <CardDetail>
-            <TbDashboard />
-            <span>{carProps?.mileage}</span>
-          </CardDetail>
-          <CardDetail>
-            <TbManualGearbox />
-            <span>{carProps?.additional[0]}</span>
-          </CardDetail>
-          <CardDetail>
-            <CardFuel fuel={carProps?.fuel}/>
-          </CardDetail>
-        </FooterCard>
-      </Description>
+      <LinkCard to={"/detalhes/carId=" + carProps?.id}>
+        <Description>
+          <YearCar>{carProps?.year}</YearCar>
+          <NameCar>{carProps?.model}</NameCar>
+          <Price>${carProps?.price}</Price>
+          <Locale>
+            <RiMapPinLine />
+            <p>
+              {finderProps !== {} &&
+                finderProps?.locales[carProps?.location].value}
+            </p>
+          </Locale>
+          <DividerDescription />
+          <FooterCard>
+            <CardDetail>
+              <TbDashboard />
+              <span>{carProps?.mileage}</span>
+            </CardDetail>
+            <CardDetail>
+              <TbManualGearbox />
+              <span>{finderProps?.transmission[carProps?.transmission].value}</span>
+            </CardDetail>
+            <CardDetail>
+              <CardFuel fuel={carProps?.fuel} />
+            </CardDetail>
+          </FooterCard>
+        </Description>
+      </LinkCard>
     </Container>
-    </LinkCard>
   );
 };
 

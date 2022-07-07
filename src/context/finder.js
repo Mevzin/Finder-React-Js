@@ -10,7 +10,6 @@ const FinderPropsContext = createContext({});
 
 const FinderProvider = ({ children }) => {
   const [finderProps, setFinderProps] = useState({});
-
   useMemo(async () => {
     await Promise.all([
       await getBrands(),
@@ -23,6 +22,8 @@ const FinderProvider = ({ children }) => {
       await getMileages(),
       await getTransmission(),
       await getCars(),
+      await getCarModel(),
+      await getCarYears()
     ]).then((response) => {
       const data = {
         brands: response[0],
@@ -35,6 +36,8 @@ const FinderProvider = ({ children }) => {
         mileages: response[7],
         transmission: response[8],
         cars: response[9],
+        carModel: response[10],
+        years: response[11],
         isLoading: false,
       };
       setFinderProps(data);
@@ -88,6 +91,16 @@ const FinderProvider = ({ children }) => {
 
   async function getTransmission() {
     const { data } = await apiFinder.get("/transmission");
+    return data;
+  }
+
+  async function getCarModel(){
+    const { data } = await apiFinder.get("/carModel");
+    return data;
+  }
+
+  async function getCarYears(){
+    const { data } = await apiFinder.get("/years");
     return data;
   }
 

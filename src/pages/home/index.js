@@ -141,7 +141,7 @@ const Home = () => {
                     <CardOffersMd
                       carProps={
                         finderProps.hasOwnProperty("cars") &&
-                        finderProps.cars[1]
+                        finderProps.cars[2]
                       }
                     />
                   </SecondaryCard>

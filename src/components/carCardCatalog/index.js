@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import {
   Container,
   ImageSlider,
@@ -23,13 +22,17 @@ import { TbDashboard, TbManualGearbox } from "react-icons/tb";
 
 import Badge from "../badge";
 import FavoriteButton from "../favoriteButton";
-import { useFinder } from "../../context/finder";
-import CardFuel from "../cardFuel";
 
-const CardOffersMd = ({ carProps }) => {
+import CardFuel from "../cardFuel";
+import { useFinder } from "../../context/finder";
+
+
+const CarCardCatalog = ({ carProps }) => {
   const [imageIndex, setImageIndex] = useState(0);
   const [moreImages, setMoreImages] = useState(true);
+
   const { finderProps } = useFinder();
+
 
   function handleNextImage() {
     if (imageIndex == carProps?.photos.length - 1) {
@@ -46,10 +49,6 @@ const CardOffersMd = ({ carProps }) => {
     }
     setImageIndex(imageIndex - 1);
   }
-
-  // if (carProps?.photos.length > 1) {
-  //   setMoreImages(true);
-  // }
 
   return (
     <Container>
@@ -77,7 +76,7 @@ const CardOffersMd = ({ carProps }) => {
         <Description>
           <YearCar>{carProps?.year}</YearCar>
           <NameCar>{carProps?.model}</NameCar>
-          <Price>${carProps?.price}</Price>
+          <Price>{(carProps?.price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</Price>
           <Locale>
             <RiMapPinLine />
             <p>
@@ -89,11 +88,11 @@ const CardOffersMd = ({ carProps }) => {
           <FooterCard>
             <CardDetail>
               <TbDashboard />
-              <span>{carProps?.mileage}</span>
+              <span>{carProps?.mileage} km</span>
             </CardDetail>
             <CardDetail>
               <TbManualGearbox />
-              <span>{carProps?.additional[0]}</span>
+              <span>{finderProps?.transmission[carProps?.transmission].value}</span>
             </CardDetail>
             <CardDetail>
               <CardFuel fuel={carProps?.fuel} />
@@ -105,4 +104,4 @@ const CardOffersMd = ({ carProps }) => {
   );
 };
 
-export default CardOffersMd;
+export default CarCardCatalog;
