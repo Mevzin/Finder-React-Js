@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const GLobalStyle = createGlobalStyle`
   * {
@@ -8,8 +8,27 @@ const GLobalStyle = createGlobalStyle`
     font-family: 'Noto Sans', sans-serif;
   }
   
-  body {
-    background: ${({theme}) => theme.colors.gray900};
+  html,body {
+    background: ${({ theme }) => theme.colors.gray900};
+
+    body,
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent;
+  position: absolute;
+  opacity: 0.7;
+}
+*::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: ${({ theme }) => theme.colors.primary};
+}
   }
 `;
 

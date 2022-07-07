@@ -15,6 +15,7 @@ export const ContainerFav = styled.button`
   z-index: 1;
   background: ${({ theme }) => theme.colors.white};
   border-radius: 50px;
+  border: none;
   transition: 0.2s;
 
   svg {

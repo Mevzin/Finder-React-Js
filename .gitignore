@@ -1,4 +1,21 @@
 node_modules
-dist
+# dist
 yarn.lock
 package-lock.json
+
+*.local
+dist
+
+# vscode
+/.vscode/
+
+# debug
+npm-debug.log*
+npm-debug.log*
+npm-error.log*
+
+# Logs
+logs
+*.log
+
+.env

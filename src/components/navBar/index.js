@@ -2,8 +2,10 @@ import React from "react";
 
 import LogoIcon from "@assets/Logo.png";
 import Divider from "@assets/divider.png";
-import UserIcon from "@assets/icons/user.svg";
-import PlusIcon from "@assets/icons/plus.svg";
+
+import { TbPlus, TbUser } from "react-icons/tb";
+
+import { Link } from "react-router-dom";
 
 import {
   Container,
@@ -21,25 +23,31 @@ const Navbar = () => {
       <Container>
         <LogoLink>
           <Logo>
-            <img src={LogoIcon} />
+            <Link to="/">
+              <img src={LogoIcon} />
+            </Link>
           </Logo>
           <Links>
             <img src={Divider} />
-            <a>Novos</a>
-            <a>Usados</a>
-            <a>Vender</a>
-            <a>Comprar</a>
-            <a>Novidades</a>
+            <Link to="/catalogo/novo/all">Novos</Link>
+            <Link to="/catalogo/novo/all">Usados</Link>
+            <Link to="/catalogo/novo/all">Vender</Link>
+            <Link to="/catalogo/novo/all">Comprar</Link>
+            <Link to="/catalogo/novo/all">Novidades</Link>
           </Links>
         </LogoLink>
         <Buttons>
           <ButtonSignIn>
-            <img src={UserIcon} />
-            <span>Entrar</span>
+            <Link to="/">
+              <TbUser />
+              <span>Entrar</span>
+            </Link>
           </ButtonSignIn>
           <ButtonSignUp>
-            <img src={PlusIcon} />
-            <span>Vender</span>
+            <Link to="/">
+              <TbPlus />
+              <span>Vender</span>
+            </Link>
           </ButtonSignUp>
         </Buttons>
       </Container>

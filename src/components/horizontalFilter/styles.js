@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
-export const FilterContainer = styled.div`
+export const FilterContainer = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
+  z-index: 2;
 `;
 
 export const SelectionFilterButtons = styled.div`
@@ -20,7 +21,6 @@ export const ButtonNewCars = styled.button`
   width: 60px;
   height: 40px;
   font-size: 16px;
-  font-weight: 400;
   margin-right: 12px;
   color: ${({ theme }) => theme.colors.white};
   background: ${({ theme }) => theme.colors.transparent};
@@ -82,7 +82,7 @@ export const FormFilter = styled.div`
     font-size: 16px;
     color: ${({ theme }) => theme.colors.gray700};
 
-    &:focus{
+    &:focus {
       outline: 0;
     }
   }
@@ -95,18 +95,18 @@ export const FormFilter = styled.div`
     font-size: 16px;
     color: ${({ theme }) => theme.colors.gray700};
 
-    &:focus{
+    &:focus {
       outline: 0;
     }
   }
 
   option {
-    max-width: 100%;
+    width: 100%;
     height: 40px;
     background: ${({ theme }) => theme.colors.gray800};
     border: none;
     font-size: 16px;
-    color: ${({ theme }) => theme.colors.gray700};
+    color: ${({ theme }) => theme.colors.gray400};
     cursor: pointer;
   }
 `;
@@ -121,6 +121,13 @@ export const ButtonSearch = styled.button`
   justify-content: center;
   border-radius: 8px;
   font-family: Noto Sans, sans-serif;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.primary};
+  }
 `;
 
 export const InputContent = styled.div`
@@ -136,13 +143,10 @@ export const InputContent = styled.div`
   cursor: pointer;
 
   &:hover {
-      border: 1px solid ${({ theme }) => theme.colors.primary};
+    border: 1px solid ${({ theme }) => theme.colors.primary};
   }
-
 
   svg {
     margin-right: 8px;
-
   }
-
 `;

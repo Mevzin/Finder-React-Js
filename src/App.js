@@ -10,12 +10,12 @@ import { FinderProvider } from "./context/finder";
 
 const App = () => {
   return (
-    <FinderProvider>
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <FinderProvider>
         <GlobalStyle />
         <Router />
-      </ThemeProvider>
-    </FinderProvider>
+      </FinderProvider>
+    </ThemeProvider>
   );
 };
 
