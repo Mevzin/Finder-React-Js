@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import { useTheme } from "styled-components";
 
+import {Link} from "react-router-dom"
+
 import {
   FilterContainer,
   SelectionFilterButtons,
@@ -60,7 +62,7 @@ export default function HorizontalFilter() {
   }, [searchInput, locationSelect, modelSelect, brandSelect, carTypeSelect]);
 
   return (
-    <FilterContainer action={`/catalogo/${conditionType}/${urlParams}`}>
+    <FilterContainer>
       <SelectionFilterButtons>
         <TypeButton
           title={"Novo"}
@@ -163,7 +165,9 @@ export default function HorizontalFilter() {
               ))}
           </select>
         </InputContent>
-        <ButtonSearch>Pesquisar</ButtonSearch>
+        <ButtonSearch>
+          <Link to={`/catalogo/${conditionType}/${urlParams}`}>Pesquisar</Link>
+        </ButtonSearch>
       </FormFilter>
     </FilterContainer>
   );

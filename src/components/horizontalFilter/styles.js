@@ -111,9 +111,8 @@ export const FormFilter = styled.div`
   }
 `;
 
-export const ButtonSearch = styled.button`
+export const ButtonSearch = styled.div`
   background: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.white};
   border: none;
   width: 142px;
   height: 52px;
@@ -124,9 +123,21 @@ export const ButtonSearch = styled.button`
   cursor: pointer;
   transition: 0.2s;
 
+  a {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    color: ${({ theme }) => theme.colors.white};
+  }
+
   &:hover {
     background: ${({ theme }) => theme.colors.white};
-    color: ${({ theme }) => theme.colors.primary};
+    a {
+      color: ${({ theme }) => theme.colors.primary};
+    }
   }
 `;
 
