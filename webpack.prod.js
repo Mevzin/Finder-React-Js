@@ -3,6 +3,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const WebpackPluginPWAManifest = require('webpack-plugin-pwa-manifest');
 
 const common = require('./webpack.common');
 const { merge } = require('webpack-merge');
@@ -57,6 +58,16 @@ module.exports = merge( common, {
       inject: true,
       favicon: "./public/favicon.png",
       manifest: "./public/manifest.json",
+    }),
+    new WebpackPluginPWAManifest({
+      name: 'Finder App',
+      shortName: 'Finder',
+      startURL: './offline',
+      generateIconOptions: {
+        baseIcon: './public/favicon.png',
+        sizes: [192, 384, 512],
+        genFavicons: true
+      }
     })
   ]
 })
