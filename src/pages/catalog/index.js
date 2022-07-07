@@ -218,6 +218,7 @@ const Catalog = () => {
       handleCheckLocation(filterObject.location);
       pass = false
     }
+    handleConditionType(state);
   }, [finderProps]);
 
   useEffect(() => {

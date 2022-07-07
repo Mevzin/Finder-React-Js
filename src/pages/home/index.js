@@ -13,6 +13,7 @@ import CardOffers from "@components/cardOffers";
 import CardOffersMd from "@components/cardOffersMd";
 import Brands from "@components/brands";
 import Store from "@components/store";
+import PublishedCarousel from "@components/publishedCarousel";
 
 import { BsArrowRight } from "react-icons/bs";
 import {
@@ -286,6 +287,7 @@ const Home = () => {
               </SecondTextColum>
             </InfoContent>
           </InfoContainer>
+          <PublishedCarousel />
           <Store />
           <DownloadAppContainer>
             <TextArea>

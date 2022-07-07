@@ -9,7 +9,6 @@ export const Check = styled.div`
   color: ${({ theme }) => theme.colors.white};
 
   span {
-    font-family: "Noto Sans";
     font-style: normal;
     font-weight: 400;
     font-size: 14px;

@@ -29,7 +29,6 @@ export const Links = styled.div`
   a {
     margin-left: 32px;
     color: ${({ theme }) => theme.colors.white};
-    font-family: Noto Sans, sans-serif;
     font-size: 14px;
     text-decoration: none;
   }
@@ -45,7 +44,6 @@ export const ButtonSignIn = styled.button`
   height: 36px;
   color: ${({ theme }) => theme.colors.white};
   border-radius: 8px;
-  font-family: Noto Sans, sans-serif;
   cursor: pointer;
 
   svg {
@@ -75,7 +73,6 @@ export const ButtonSignUp = styled.button`
   height: 36px;
   color: ${({ theme }) => theme.colors.white};
   border-radius: 8px;
-  font-family: Noto Sans, sans-serif;
   cursor: pointer;
 
   svg {

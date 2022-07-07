@@ -12,7 +12,6 @@ export const Selection = styled.select`
   color: ${({ theme }) => theme.colors.white};
 
   option {
-    font-family: "Noto Sans";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;

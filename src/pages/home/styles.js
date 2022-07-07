@@ -25,7 +25,6 @@ export const BannerText = styled.div`
   display: flex;
   flex-direction: column;
   align-items: start;
-  font-family: "Noto sans", sans-serif;
   width: 526px;
 `;
 

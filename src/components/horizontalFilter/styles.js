@@ -119,7 +119,6 @@ export const ButtonSearch = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  font-family: Noto Sans, sans-serif;
   cursor: pointer;
   transition: 0.2s;
 
