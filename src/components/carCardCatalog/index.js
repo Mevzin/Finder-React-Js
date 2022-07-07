@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Container,
   ImageSlider,
@@ -25,14 +25,18 @@ import FavoriteButton from "../favoriteButton";
 
 import CardFuel from "../cardFuel";
 import { useFinder } from "../../context/finder";
+import BadgeCertified from "../badgeCertified";
 
+import { motion, useAnimation } from "framer-motion";
+
+import { useInView } from "react-intersection-observer";
 
 const CarCardCatalog = ({ carProps }) => {
   const [imageIndex, setImageIndex] = useState(0);
   const [moreImages, setMoreImages] = useState(true);
-
   const { finderProps } = useFinder();
-
+  const control = useAnimation();
+  const [ref, inView] = useInView();
 
   function handleNextImage() {
     if (imageIndex == carProps?.photos.length - 1) {
@@ -50,7 +54,21 @@ const CarCardCatalog = ({ carProps }) => {
     setImageIndex(imageIndex - 1);
   }
 
+  useEffect(() => {
+    if (inView) {
+      control.start("visible");
+    } else {
+      control.start("hidden");
+    }
+  }, [control, inView]);
+
+  const cardVariant = {
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
+    hidden: { opacity: 0, scale: 0 }
+  };
+
   return (
+    <motion.div ref={ref} variants={cardVariant} initial="hidden" animate={control}>
     <Container>
       <ImageSlider>
         {moreImages && (
@@ -64,6 +82,7 @@ const CarCardCatalog = ({ carProps }) => {
             finderProps?.conditions[carProps?.condition].value
           }
         />
+        <BadgeCertified isCertified={carProps?.certified} />
         <ImageCar src={carProps?.photos[imageIndex]} />
         <FavoriteButton />
         {moreImages && (
@@ -72,11 +91,16 @@ const CarCardCatalog = ({ carProps }) => {
           </NextButton>
         )}
       </ImageSlider>
-      <LinkCard to={"/detalhes/carId=" + carProps?.id}>
+      <LinkCard to={"/detalhes/" + carProps?.id}>
         <Description>
           <YearCar>{carProps?.year}</YearCar>
           <NameCar>{carProps?.model}</NameCar>
-          <Price>{(carProps?.price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</Price>
+          <Price>
+            {(carProps?.price).toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            })}
+          </Price>
           <Locale>
             <RiMapPinLine />
             <p>
@@ -92,7 +116,9 @@ const CarCardCatalog = ({ carProps }) => {
             </CardDetail>
             <CardDetail>
               <TbManualGearbox />
-              <span>{finderProps?.transmission[carProps?.transmission].value}</span>
+              <span>
+                {finderProps?.transmission[carProps?.transmission].value}
+              </span>
             </CardDetail>
             <CardDetail>
               <CardFuel fuel={carProps?.fuel} />
@@ -101,6 +127,7 @@ const CarCardCatalog = ({ carProps }) => {
         </Description>
       </LinkCard>
     </Container>
+    </motion.div>
   );
 };
 
