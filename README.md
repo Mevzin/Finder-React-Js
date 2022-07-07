@@ -37,7 +37,7 @@ Layout do projeto através [desse link](https://www.figma.com/file/FnTOK15dbxgyB
 
 ## Rodar o projeto local:
 
-`npm start`
+`npm run dev`
 
 ## Para buildar usando o Webpack:
 
