@@ -8,5 +8,5 @@ export const apiFinderSecondary = axios.create({
 });
 
 export const apiFinder = axios.create({
-  baseURL: process.env.BASE_URL_LOCAL
+  baseURL: "https://finder-api-fake.herokuapp.com"
 });
