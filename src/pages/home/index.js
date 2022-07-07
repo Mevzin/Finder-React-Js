@@ -65,6 +65,17 @@ import ImagePost2 from "@assets/imageCard2.png";
 import ImageProfile2 from "@assets/imageProfile2.png";
 import ImagePost3 from "@assets/imageCard3.png";
 import ImageProfile3 from "@assets/imageProfile3.png";
+import ImageIlustration from "@assets/illustration.png"
+import ImageGoogleIcon from "@assets/googleplay.png"
+import ImageAppleIcon from "@assets/appstore.png"
+import {
+  ButtonsDown,
+  DownloadAppContainer,
+  ImageArea,
+  TextArea,
+  TextDown,
+  TitleDown,
+} from "../../components/cardLastNews/styles";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -239,6 +250,23 @@ const Home = () => {
                 </InfoContent>
               </InfoContainer>
               <Store />
+              <DownloadAppContainer>
+                <TextArea>
+                  <TitleDown>Baixe o nosso app</TitleDown>
+                  <TextDown>
+                    Baixe o Finder App e junte-se à comunidade de entusiastas de
+                    carros. Não pare sua busca de carro quando sair do
+                    computador com nosso aplicativo para Android e iOS!
+                  </TextDown>
+                  <ButtonsDown>
+                    <img src={ImageAppleIcon}/>
+                    <img src={ImageGoogleIcon}/>
+                  </ButtonsDown>
+                </TextArea>
+                <ImageArea>
+                  <img src={ImageIlustration}/>
+                </ImageArea>
+              </DownloadAppContainer>
               <LastNewsContainer>
                 <HeaderSection>
                   <TitleSection>
