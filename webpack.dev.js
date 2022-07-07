@@ -51,7 +51,8 @@ module.exports = merge(common, {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './template.dev.html'
+      template: './template.dev.html',
+      favicon: "./src/assets/favicon.png",
     }),
     new ReactRefreshWebpackPlugin()
   ]

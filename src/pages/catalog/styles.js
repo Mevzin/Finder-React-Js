@@ -62,7 +62,6 @@ export const ContentFilterCard = styled.div`
 
 export const ContainerFilters = styled.div`
   width: 290px;
-
   margin: 0px 40px 329px 0px;
 `;
 
@@ -177,8 +176,7 @@ export const Order = styled.div`
 
 export const SortyBy = styled.div`
   display: flex;
-  margin-top: auto;
-  /* margin-left: -430px; */
+  margin-bottom: 80px;
 
   span {
     width: 180px;
@@ -204,4 +202,26 @@ export const ContentListCards = styled.div`
   width: 100%;
 `;
 export const HeaderFilterRight = styled.div``;
-export const ListCards = styled.div``;
+export const ListCards = styled.div`
+  margin: 32px 0;
+  display: grid;
+  grid-template-columns: 495px 495px;
+  grid-auto-rows: 495px;
+`;
+
+export const Test = styled.div`
+  display: flex;
+  height: 471px;
+`;
+
+export const ContainerErrorSearch = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  h2 {
+    color: ${({ theme }) => theme.colors.white};
+    font-size: 30px;
+  }
+`;

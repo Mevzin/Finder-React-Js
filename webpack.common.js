@@ -1,5 +1,7 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const webpack = require('webpack');
+require('dotenv').config({ path: './.env' });
 
 module.exports = {
   entry: './src/index.js',
@@ -11,13 +13,19 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.scss'],
     alias: {
-      '@':  path.join(__dirname, 'src'),
       "@components": path.resolve(__dirname, "src/components"),
+      "@contexts": path.resolve(__dirname, "src/context"),
       "@services": path.resolve(__dirname, "src/service"),
       "@assets": path.resolve(__dirname, "src/assets"),
+      "@hooks": path.resolve(__dirname, "src/hooks"),
+      "@pages": path.resolve(__dirname, "src/pages"),
+      '@':  path.join(__dirname, 'src')
     }
   },
   plugins: [
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new webpack.DefinePlugin({
+      "process.env": JSON.stringify(process.env)
+    }),
   ]
 }

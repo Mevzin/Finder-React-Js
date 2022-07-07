@@ -1,4 +1,15 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+
+export const LinkCard = styled(Link)`
+  text-decoration: none;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  margin: auto;
+`;
 
 export const Container = styled.div`
   display: flex;

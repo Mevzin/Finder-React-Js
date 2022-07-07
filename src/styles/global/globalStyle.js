@@ -23,6 +23,7 @@ html {
 }
 *::-webkit-scrollbar {
   width: 3px;
+  height: 3px;
 }
 *::-webkit-scrollbar-thumb {
   border-radius: 10px;

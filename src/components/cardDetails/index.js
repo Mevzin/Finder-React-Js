@@ -92,7 +92,6 @@ const CardDetails = () => {
         (result) => {
           setIsLoader(false);
           setCar(result.data);
-          console.log(result.data);
         },
         (error) => {
           console.log("error >>> ", error);

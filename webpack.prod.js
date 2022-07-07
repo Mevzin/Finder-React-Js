@@ -42,7 +42,8 @@ module.exports = merge( common, {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './template.prod.html'
+      template: './template.prod.html',
+      favicon: "./src/assets/favicon.png",
     }),
     new MiniCssExtractPlugin({
       filename: 'main-bundle-[hash].css'

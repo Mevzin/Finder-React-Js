@@ -17,3 +17,5 @@ npm-error.log*
 # Logs
 logs
 *.log
+
+.env

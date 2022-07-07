@@ -2,13 +2,15 @@ import React from "react";
 
 import { Check } from "./styles";
 
-const Checkbox = ({ value }) => {
+const Checkbox = ({ value, ...rest }) => {
   return (
-    <Check>
+    <Check
+      {...rest}
+    >
       {value.map((value, index) => {
         return (
           <div key={index}>
-            <input type="checkbox" value={value.value} />
+            <input type="checkbox" value={value.id} />
             <span>{value.value}</span>
           </div>
         );
