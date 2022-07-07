@@ -387,3 +387,15 @@ export const Published = styled.div`
     opacity: 0.7;
   }
 `;
+
+export const ButtonsImages = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    position: relative;
+    top: -20px;
+  }
+`;

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -23,8 +24,13 @@ export const IconCar = styled.img`
 `;
 
 export const NameModel = styled.p`
+  text-decoration: none;
   font-size: 16px;
   color: ${({ theme }) => theme.colors.white};
   font-weight: bold;
   margin-top: 31px;
+`;
+
+export const LinkStyled = styled(Link)`
+  text-decoration: none;
 `;
