@@ -11,7 +11,7 @@ import CrossoverIcon from "@assets/modelsIcons/crossover.svg";
 import WagonIcon from "@assets/modelsIcons/wagon.svg";
 import CompactIcon from "@assets/modelsIcons/compact.svg";
 import ConvertibleIcon from "@assets/modelsIcons/convertible.svg";
-import SportCoupeIcon from "@assets/modelsIcons/sportcoupe.svg";
+import SportCoupeIcon from "@assets/modelsIcons/sportCoupe.svg";
 
 import { Link } from "react-router-dom";
 
