@@ -37,10 +37,10 @@ const Navbar = () => {
           <Links>
             <img src={Divider} />
             <Link to="/catalogo/novo/all">Novos</Link>
-            <Link to="/catalogo/novo/all">Usados</Link>
+            <Link to="/catalogo/usado/all">Usados</Link>
             <Link to="/catalogo/novo/all">Vender</Link>
             <Link to="/catalogo/novo/all">Comprar</Link>
-            <Link to="/catalogo/novo/all">Novidades</Link>
+            <Link to="/">Novidades</Link>
           </Links>
         </LogoLink>
         <Buttons>

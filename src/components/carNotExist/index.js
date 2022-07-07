@@ -18,7 +18,7 @@ const CarNotExist = () => {
         <h1>Este carro não existe no nosso sistema :'(</h1>
         <h2>
           Vá para o nosso{" "}
-          <LinkStyled to="catalogo/novo/all">catalogo!</LinkStyled>
+          <LinkStyled to="/catalogo/novo/all">catalogo!</LinkStyled>
         </h2>
       </Container>
     </motion.div>
