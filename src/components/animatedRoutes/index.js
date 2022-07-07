@@ -14,7 +14,7 @@ const AnimatedRoutes = () => {
       <Routes location={location} key={location.pathname}>
         <Route path="*" element={<Error />} />
         <Route path="/" element={<Home />} />
-        <Route path="detalhes/:idcar" element={<Details />} />
+        <Route path="detalhes/:idCar" element={<Details />} />
         <Route path="catalogo/:state/:filterParams" element={<Catalog />} />
       </Routes>
     </AnimatePresence>

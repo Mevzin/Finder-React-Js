@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-import { Container, IconCar, NameModel } from "./styles";
+import { Container, IconCar, LinkStyled, NameModel } from "./styles";
 
 import SuvIcon from "@assets/modelsIcons/suvIcon.svg";
 import PickupIcon from "@assets/modelsIcons/pickup.svg";
@@ -13,9 +13,13 @@ import CompactIcon from "@assets/modelsIcons/compact.svg";
 import ConvertibleIcon from "@assets/modelsIcons/convertible.svg";
 import SportCoupeIcon from "@assets/modelsIcons/sportCoupe.svg";
 
-import { Link } from "react-router-dom";
+import { motion, useAnimation } from "framer-motion";
+
+import { useInView } from "react-intersection-observer";
 
 const CardMostSearch = ({ carModel, idModel }) => {
+  const control = useAnimation();
+  const [ref, inView] = useInView();
   function getCarImageByName(carModel) {
     switch (carModel) {
       case "SUV":
@@ -41,13 +45,33 @@ const CardMostSearch = ({ carModel, idModel }) => {
     }
   }
 
+  useEffect(() => {
+    if (inView) {
+      control.start("visible");
+    } else {
+      control.start("hidden");
+    }
+  }, [control, inView]);
+
+  const cardVariant = {
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
+    hidden: { opacity: 0, scale: 0 },
+  };
+
   return (
-    <Link to={"/catalogo/novo/typeCar=" + idModel}>
-      <Container>
-        {getCarImageByName(carModel)}
-        <NameModel>{carModel}</NameModel>
-      </Container>
-    </Link>
+    <motion.div
+      ref={ref}
+      variants={cardVariant}
+      initial="hidden"
+      animate={control}
+    >
+      <LinkStyled to={"/catalogo/novo/typeCar=" + idModel}>
+        <Container>
+          {getCarImageByName(carModel)}
+          <NameModel>{carModel}</NameModel>
+        </Container>
+      </LinkStyled>
+    </motion.div>
   );
 };
 
