@@ -207,6 +207,10 @@ const Catalog = () => {
   }
 
   useEffect(() => {
+    if (finderProps.hasOwnProperty("isLoading")) {
+      setIsLoading(finderProps?.isLoading);
+      setSearchIsLoading(finderProps?.isLoading);
+    }
     handleConditionType(state);
   }, [finderProps]);
 
