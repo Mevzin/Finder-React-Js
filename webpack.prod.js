@@ -41,10 +41,10 @@ module.exports = merge( common, {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './template.prod.html',
-      favicon: "./src/assets/favicon.png",
-    }),
+    // new HtmlWebpackPlugin({
+    //   template: './template.prod.html',
+    //   favicon: "./src/assets/favicon.png",
+    // }),
     new MiniCssExtractPlugin({
       filename: 'main-bundle-[hash].css'
     }),
@@ -52,5 +52,11 @@ module.exports = merge( common, {
       logo: "./src/assets/favicon.png",
       outputPath: "img",
     }),
+    new HtmlWebpackPlugin({
+      template: "./template.prod.html",
+      inject: true,
+      favicon: "./public/favicon.png",
+      manifest: "./public/manifest.json",
+    })
   ]
 })
