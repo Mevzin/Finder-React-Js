@@ -52,10 +52,19 @@ import {
   SecondContentParagraphs,
   SecondParagraphText,
   LinkRedirect,
+  LastNewsContainer,
+  LastNewsContent,
 } from "./styles";
 import Footer from "../../components/footer";
 import { useFinder } from "../../context/finder";
 import LoadingScreen from "../loadingScreen";
+import CardLastNews from "../../components/cardLastNews";
+import ImagePost1 from "@assets/imageCard1.png";
+import ImageProfile1 from "@assets/imageProfile1.png";
+import ImagePost2 from "@assets/imageCard2.png";
+import ImageProfile2 from "@assets/imageProfile2.png";
+import ImagePost3 from "@assets/imageCard3.png";
+import ImageProfile3 from "@assets/imageProfile3.png";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -229,7 +238,44 @@ const Home = () => {
                   </SecondTextColum>
                 </InfoContent>
               </InfoContainer>
-              <Store/>
+              <Store />
+              <LastNewsContainer>
+                <HeaderSection>
+                  <TitleSection>
+                    <h2>Ultimas Novidades</h2>
+                  </TitleSection>
+                  <ViewAllResults>
+                    <p>Vá até o blog</p>
+                    <BsArrowRight />
+                  </ViewAllResults>
+                </HeaderSection>
+                <LastNewsContent>
+                  <CardLastNews
+                    imageSrc={ImagePost1}
+                    badge={"DICAS"}
+                    text={"Loren ipsuns"}
+                    profileImage={ImageProfile1}
+                    nameProfile={"Jacob Jones"}
+                    datePost={"24 de Nov"}
+                  />
+                  <CardLastNews
+                    imageSrc={ImagePost2}
+                    badge={"OFERTAS"}
+                    text={"Loren ipsuns"}
+                    profileImage={ImageProfile2}
+                    nameProfile={"Annette Black"}
+                    datePost={"28 de Nov"}
+                  />
+                  <CardLastNews
+                    imageSrc={ImagePost3}
+                    badge={"ORFERTAS"}
+                    text={"Loren ipsuns"}
+                    profileImage={ImageProfile3}
+                    nameProfile={"Ralph Edwards"}
+                    datePost={"15 de dez"}
+                  />
+                </LastNewsContent>
+              </LastNewsContainer>
             </Content>
             <Footer />
           </Container>

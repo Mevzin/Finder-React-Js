@@ -232,3 +232,17 @@ export const LinkRedirect = styled(Link)`
   flex-direction: row;
   align-items: flex-end;
 `;
+
+export const LastNewsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 390px;
+  margin-bottom: 80px;
+`;
+
+export const LastNewsContent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32px;
+`;
