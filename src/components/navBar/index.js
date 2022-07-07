@@ -17,9 +17,16 @@ import {
   LogoLink,
 } from "./styles";
 
+import { motion } from "framer-motion"
+
 const Navbar = () => {
   return (
-    <>
+    <motion.div
+    style={{zIndex: 2}}
+    initial={{ y: -window.innerHeight }}
+    animate={{ y: 0 }}
+    exit={{ y: -window.innerHeight }}
+    >
       <Container>
         <LogoLink>
           <Logo>
@@ -51,7 +58,7 @@ const Navbar = () => {
           </ButtonSignUp>
         </Buttons>
       </Container>
-    </>
+    </motion.div>
   );
 };
 

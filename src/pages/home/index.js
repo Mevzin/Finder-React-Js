@@ -65,9 +65,9 @@ import ImagePost2 from "@assets/imageCard2.png";
 import ImageProfile2 from "@assets/imageProfile2.png";
 import ImagePost3 from "@assets/imageCard3.png";
 import ImageProfile3 from "@assets/imageProfile3.png";
-import ImageIlustration from "@assets/illustration.png"
-import ImageGoogleIcon from "@assets/googleplay.png"
-import ImageAppleIcon from "@assets/appstore.png"
+import ImageIlustration from "@assets/illustration.png";
+import ImageGoogleIcon from "@assets/googleplay.png";
+import ImageAppleIcon from "@assets/appstore.png";
 import {
   ButtonsDown,
   DownloadAppContainer,
@@ -76,6 +76,8 @@ import {
   TextDown,
   TitleDown,
 } from "../../components/cardLastNews/styles";
+
+import { motion } from "framer-motion";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -88,7 +90,11 @@ const Home = () => {
   }, [finderProps]);
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.2 } }}
+    >
       {isLoading ? (
         <LoadingScreen />
       ) : (
@@ -98,14 +104,35 @@ const Home = () => {
             <Content>
               <Navbar />
               <BannerContainer>
-                <BannerText>
-                  <BannerTitle>Compre e Venda com facilidade.</BannerTitle>
-                  <BannerParagraph>
-                    O finder é um mercado digital líder para a indústria
-                    automotiva que conecta compradores de carros e vendedores.
-                  </BannerParagraph>
-                </BannerText>
-                <BannerImage src={CarImage} />
+                <motion.div
+                  initial={{ x: -window.innerWidth }}
+                  animate={{ x: 0 }}
+                  exit={{ x: -window.innerWidth }}
+                >
+                  <BannerText>
+                    <BannerTitle>Compre e Venda com facilidade.</BannerTitle>
+                    <BannerParagraph>
+                      O finder é um mercado digital líder para a indústria
+                      automotiva que conecta compradores de carros e vendedores.
+                    </BannerParagraph>
+                  </BannerText>
+                </motion.div>
+                <motion.div
+                  style={{ zIndex: 2 }}
+                  initial={{
+                    x: window.innerWidth,
+                    opacity: 0,
+                    transition: { duration: 0.2 },
+                  }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{
+                    x: window.innerWidth,
+                    opacity: 0,
+                    transition: { duration: 0.2 },
+                  }}
+                >
+                  <BannerImage src={CarImage} />
+                </motion.div>
               </BannerContainer>
               <HorizontalFilter />
               <MostSearchContainer>
@@ -259,12 +286,12 @@ const Home = () => {
                     computador com nosso aplicativo para Android e iOS!
                   </TextDown>
                   <ButtonsDown>
-                    <img src={ImageAppleIcon}/>
-                    <img src={ImageGoogleIcon}/>
+                    <img src={ImageAppleIcon} />
+                    <img src={ImageGoogleIcon} />
                   </ButtonsDown>
                 </TextArea>
                 <ImageArea>
-                  <img src={ImageIlustration}/>
+                  <img src={ImageIlustration} />
                 </ImageArea>
               </DownloadAppContainer>
               <LastNewsContainer>
@@ -309,7 +336,7 @@ const Home = () => {
           </Container>
         </>
       )}
-    </>
+    </motion.div>
   );
 };
 
