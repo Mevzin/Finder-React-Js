@@ -60,16 +60,16 @@ const Catalog = () => {
   let i = 1;
 
 
-  if (filterParams != "all") {
-    const filterRefactored =
-      '{"' +
-      filterParams
-        .replace(/"/g, '\\"')
-        .replace(/&/g, '","')
-        .replace(/=/g, '":"') +
-      '"}';
-    filterObject = JSON.parse(filterRefactored);
-  }
+  // if (filterParams != "all") {
+  //   const filterRefactored =
+  //     '{"' +
+  //     filterParams
+  //       .replace(/"/g, '\\"')
+  //       .replace(/&/g, '","')
+  //       .replace(/=/g, '":"') +
+  //     '"}';
+  //   filterObject = JSON.parse(filterRefactored);
+  // }
   
 
   const orderSelected = [
@@ -210,13 +210,6 @@ const Catalog = () => {
     if (finderProps.hasOwnProperty("isLoading")) {
       setIsLoading(finderProps?.isLoading);
       setSearchIsLoading(finderProps?.isLoading);
-    }
-    if(pass & filterParams != "all"){
-      handleCheckCarBrand(filterObject.brand);
-      handleCheckCarModel(filterObject.model);
-      handleCheckCarType(filterObject.carType);
-      handleCheckLocation(filterObject.location);
-      pass = false
     }
     handleConditionType(state);
   }, [finderProps]);
