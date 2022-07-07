@@ -60,16 +60,16 @@ const Catalog = () => {
   let i = 1;
 
 
-  if (filterParams != "all") {
-    const filterRefactored =
-      '{"' +
-      filterParams
-        .replace(/"/g, '\\"')
-        .replace(/&/g, '","')
-        .replace(/=/g, '":"') +
-      '"}';
-    filterObject = JSON.parse(filterRefactored);
-  }
+  // if (filterParams != "all") {
+  //   const filterRefactored =
+  //     '{"' +
+  //     filterParams
+  //       .replace(/"/g, '\\"')
+  //       .replace(/&/g, '","')
+  //       .replace(/=/g, '":"') +
+  //     '"}';
+  //   filterObject = JSON.parse(filterRefactored);
+  // }
   
 
   const orderSelected = [
