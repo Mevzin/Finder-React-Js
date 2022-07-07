@@ -94,7 +94,7 @@ const CardOffersMd = ({ carProps }) => {
         <Description>
           <YearCar>{carProps?.year}</YearCar>
           <NameCar>{carProps?.model}</NameCar>
-          <Price>${carProps?.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</Price>
+          <Price>{carProps?.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</Price>
           <Locale>
             <RiMapPinLine />
             <p>
