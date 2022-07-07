@@ -1,9 +1,8 @@
 import React from "react";
 
 import LoadingImage from "@assets/loading.svg";
-import Logo from "@assets/Logo.svg";
 
-import { ContainerLoading, ImageLogo } from "./styles";
+import { ContainerLoading } from "./styles";
 
 import { motion } from "framer-motion";
 
@@ -15,7 +14,6 @@ const LoadingScreen = () => {
       exit={{ opacity: 0, transition: { duration: 0.2 } }}
     >
       <ContainerLoading>
-        <ImageLogo src={Logo} />
         <img src={LoadingImage} />
       </ContainerLoading>
     </motion.div>
