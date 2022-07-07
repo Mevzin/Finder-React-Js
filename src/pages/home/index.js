@@ -229,6 +229,7 @@ const Home = () => {
                   </SecondTextColum>
                 </InfoContent>
               </InfoContainer>
+              <Store/>
             </Content>
             <Footer />
           </Container>
